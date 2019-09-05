@@ -1,6 +1,7 @@
 <?php
 
 use app\Entry;
+use app\manual\DataType;
 use app\manual\Magic;
 use app\manual\MagicConstant;
 
@@ -10,7 +11,8 @@ require 'app/Constant.php'; //定义常量
  * 公共测试入口，只要修改对象和方法即可
  */
 $entry = new Entry();
-$entry(new MagicConstant(), 'index');
+$entry(new DataType(), 'index');
+//$entry(new MagicConstant(), 'index');
 //$entry(new Magic(), 'index');
 
 /**
@@ -30,6 +32,7 @@ $entry(new MagicConstant(), 'index');
 //
 //$magic2 = clone $magic;
 //echo $magic2->name;
+
 
 
 
