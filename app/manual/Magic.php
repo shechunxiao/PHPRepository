@@ -7,9 +7,8 @@ use app\Other;
 
 class Magic implements Base
 {
-    /*
-     * 魔术方法类
-     * 魔术方法有如下几个:
+    /**
+     * 魔术方法
      *  __construct() √
      *  __destruct()  √
      *  __autoload() √ //自动加载，参见composer  autoload.php

@@ -2,11 +2,15 @@
 
 use app\Entry;
 use app\manual\Magic;
+use app\manual\MagicConstant;
 
-require 'bootstrap/app.php';
-
-//$entry = new Entry();
-//
+require 'bootstrap/app.php'; //composer自动加载
+require 'app/Constant.php'; //定义常量
+/**
+ * 公共测试入口，只要修改对象和方法即可
+ */
+$entry = new Entry();
+$entry(new MagicConstant(), 'index');
 //$entry(new Magic(), 'index');
 
 /**
@@ -26,6 +30,8 @@ require 'bootstrap/app.php';
 //
 //$magic2 = clone $magic;
 //echo $magic2->name;
+
+
 
 
 
