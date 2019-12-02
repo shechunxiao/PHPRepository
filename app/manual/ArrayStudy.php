@@ -37,7 +37,9 @@ class ArrayStudy implements Base
 //        $this->spliceAndPad();
 //        $this->pushAndPop();
 //        $this->shiftAndUnshift();
-        $this->callableFunction();
+//        $this->callableFunction();
+//        $this->sortFunction();
+//        $this->column();
     }
 
     /**
@@ -282,22 +284,142 @@ class ArrayStudy implements Base
          * @param $two
          */
 
-        $result = array_walk($this->crr, [$this,'selfCallable'],['one'=>2,'two'=>4]);
-        var_dump($result);
-        var_dump($this->crr);
+//        $result = array_walk($this->crr, [$this,'selfCallable'],['one'=>2,'two'=>4]);
+//        var_dump($result);
+//        var_dump($this->crr);
+        /**
+         *  array array_map( callable $callback, array $arr1[, array $...] )
+         *  array_map() 返回一个数组，该数组包含了 arr1 中的所有单元经过 callback 作用过之后的单元。callback 接受的参数数目应该和传递给 array_map() 函数的数组数目一致。
+         *  callback
+         * 对每个数组的每个元素作用的回调函数。
+         * arr1
+         * 将被回调函数（callback）执行的数组。
+         * array
+         * 将被回调函数（callback）执行的数组列表。
+         */
+//        $result = array_map(function($item){
+//            return $item.'/self';
+//        },$this->crr);
+//        $a = [1,2,3];
+//        $b = [1,2,3,4];
+//        $c = ["332","23432",2,3,4];
+//        $result = array_map(function($item1,$item2){
+//            if ($item1 == $item2){
+//                return $item1;
+//            }
+//        },$a,$b);
+        /**
+         * 重点
+         *  这个方法的特别用法可以将两个数组合并成一个，一一合并
+         *
+         *
+         */
+//        $result = array_map(null,$a,$b,$c);
+//        var_dump($result);
+        /**
+         * array array_filter( array $array[, callable $callback[, int $flag = 0]] )
+         *      input
+         * 要循环的数组
+         * callback
+         * 使用的回调函数
+         * 如果没有提供 callback 函数，将删除 input 中所有等值为 FALSE 的条目。更多信息见转换为布尔值。
+         * flag
+         * 决定callback接收的参数形式:
+         * ◦ ARRAY_FILTER_USE_KEY - callback接受键名作为的唯一参数
+         * ◦ ARRAY_FILTER_USE_BOTH - callback同时接受键名和键值
+         *
+         * 返回过滤后的数组。
+         */
+//        $result = array_filter($this->crr,function($item,$key){
+//            echo $item;
+//            echo $key;
+//            if ($item>3){
+//                return true;
+//            }
+//            return false;
+//        },1);
+//        var_dump($result);
+        /**
+         *  mixed array_reduce( array $input, callable $function[, mixed $initial = NULL] )
+         *  array_reduce() 将回调函数 function 迭代地作用到 input 数组中的每一个单元中，从而将数组简化为单一的值。
+         *  input
+         * The input array.
+         * function
+         * The callback function.
+         *
+         * mixed callback( mixed &$result, mixed $item)
+         * initial
+         * 如果指定了可选参数 initial，该参数将被当成是数组中的第一个值来处理，或者如果数组为空的话就作为最终返回值。
+         */
+//        $result = array_reduce($this->crr,function($v,$w){
+//            return $v *= $w;
+//        },2);
+//        var_dump($result);
+
     }
 
     /**
-     * @param $value(数组的值)
-     * @param $key(数组的键)
-     * @param $data(用户传递的数据,其实在当前文件下可以不传)
+     * @param $value (数组的值)
+     * @param $key (数组的键)
+     * @param $data (用户传递的数据,其实在当前文件下可以不传)
      * @return void
      */
-    public function selfCallable(&$value,$key,$data)
+    public function selfCallable(&$value, $key, $data)
     {
-        if ($value > $data['one'] && $value<$data['two']){
+        if ($value > $data['one'] && $value < $data['two']) {
             $value = '中间值';
         }
+    }
+
+    /**
+     * 数组排序
+     *
+     */
+    public function sortFunction()
+    {
+        /**
+         * 按照值进行排序
+         */
+//        sort($this->crr,SORT_NUMERIC);
+//        rsort($this->crr);
+//        asort($this->crr);
+//        arsort($this->crr);
+//        var_dump($this->crr);
+        /**
+         * 按照键进行排序
+         */
+//        ksort($this->crr);
+//        krsort($this->crr);
+//        natsort($this->crr);
+//        var_dump($this->crr);
+    }
+
+    /**
+     *  //使用方法一
+     *  重构数组的key值,这里的需求是将一个二维数组中的某一个字段指定为对应的key（键）
+     *  array array_column( array $input, mixed $column_key[, mixed $index_key])
+     *  array_column() 返回input数组中键值为column_key的列，如果指定了可选参数index_key，那么input数组中的这一列的值将作为返回数组中对应值的键。
+         *  input
+                需要取出数组列的多维数组（或结果集）
+            column_key
+                需要返回值的列，它可以是索引数组的列索引，或者是关联数组的列的键。也可以是NULL，此时将返回整个数组（配合index_key参数来重置数组键的时候，非常管用）
+            index_key
+                作为返回数组的索引/键的列，它可以是该列的整数索引，或者字符串键值。
+     *  //使用方法二，可以组成key=》value的值，也就是说可以实现某个二维数组中某两个值组成一个键一个值得搭配column
+     */
+    public function column(){
+        $a = [
+            [
+                'id'=>1,
+                'name'=>'first'
+            ],
+            [
+                'id'=>2,
+                'name'=>'second'
+            ]
+        ];
+        $arr = array_column($a,'name','id');
+        var_dump($arr);
     }
 
 
