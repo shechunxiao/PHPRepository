@@ -10,8 +10,8 @@ require 'app/Constant.php'; //定义常量
 /**
  * 公共测试入口，只要修改对象和方法即可
  */
-$entry = new Entry();
-$entry(new DataType(), 'index');
+//$entry = new Entry();
+//$entry(new DataType(), 'index');
 //$entry(new MagicConstant(), 'index');
 //$entry(new Magic(), 'index');
 
@@ -32,6 +32,18 @@ $entry(new DataType(), 'index');
 //
 //$magic2 = clone $magic;
 //echo $magic2->name;
+
+/**
+ * 数组函数研究
+ */
+$array = new \app\manual\ArrayStudy();
+$array->index();
+
+
+/**
+ * 字符串函数研究
+ */
+
 
 
 
