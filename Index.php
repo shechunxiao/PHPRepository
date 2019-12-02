@@ -40,6 +40,10 @@ $array = new \app\manual\ArrayStudy();
 $array->index();
 
 
+
+
+
+
 /**
  * 字符串函数研究
  */
