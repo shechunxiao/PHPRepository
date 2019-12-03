@@ -39,6 +39,15 @@ require 'app/Constant.php'; //定义常量
 $array = new \app\manual\ArrayStudy();
 $array->index();
 
+$a = [1,2,3,4,5];
+$is = array_search(2,$a,true);
+if ($is != false){
+    echo 'you';
+}else{
+    echo '没有';
+}
+
+var_dump($is);
 
 
 

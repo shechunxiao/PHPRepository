@@ -26,7 +26,7 @@ class ArrayStudy implements Base
         'test' => ['one' => 'test/one'],
     ];
     protected $crr = [1, 2, 3, 4, 5, 1];
-    protected $drr = [];
+    protected $drr = ['one','two','three','four','five'];
 
     /**
      * 数组的研究
@@ -44,7 +44,7 @@ class ArrayStudy implements Base
 //        $this->computed();
 //        $this->diffAndIntersect();
 //        $this->pointer();
-        $this->other();
+//        $this->other();
     }
 
     /**
@@ -273,6 +273,7 @@ class ArrayStudy implements Base
 
     /**
      *  回调函数
+     *      对原数组修改的深度 array_filter(过滤,return true则保留，否则删除)->array_walk(引用修改值,use引用)->array_map(遍历数组，自定义返回值，和其他数组配合);
      *      总列:
      *          1.array_walk
      *          2.array_map
@@ -314,7 +315,7 @@ class ArrayStudy implements Base
 //            }
 //        },$a,$b);
         /**
-         * 重点
+         *  重点
          *  这个方法的特别用法可以将两个数组合并成一个，一一合并
          *
          *
@@ -572,13 +573,52 @@ class ArrayStudy implements Base
      */
     public function other(){
         /**
+         *  //需要注意的是这个函数，必须单一的值不能是数组
          *  array array_unique( array $array[, int $sort_flags = SORT_STRING] )
          *      array_unique() 接受 array 作为输入并返回没有重复值的新数组。
          *      注意键名保留不变。array_unique() 先将值作为字符串排序，然后对每个值只保留第一个遇到的键名，接着忽略所有后面的键名。
          *      这并不意味着在未排序的 array 中同一个值的第一个出现的键名会被保留。
          */
-
+//        $a = [1,2,34,3,2,3,1];
+//        $result = array_unique($a);
+//        var_dump($result);
+        /**
+         *  array array_reverse( array $array[, bool $preserve_keys = false] )
+         *      array_reverse() 接受数组 array 作为输入并返回一个单元为相反顺序的新数组。
+         *      preserve_keys
+                    如果设置为 TRUE 会保留数字的键。非数字的键则不受这个设置的影响，总是会被保留。
+         */
+//        $result = array_reverse($this->arr,true); //如果加true那么会保留原来的索引
+//        var_dump($result);
+        /**
+         *  //索引会重新从0开始
+         *  bool shuffle( array &$array)
+         *      本函数打乱（随机排列单元的顺序）一个数组。
+         */
+//        $result = shuffle($this->arr);
+//        var_dump($result);
+//        var_dump($this->arr);
+        /**
+         *  array range( mixed $start, mixed $limit[, number $step = 1] )
+         *      建立一个包含指定范围单元的数组。
+         *      返回的数组中从 start 到 limit 的单元，包括它们本身。
+         */
+//        $result = range(1,10,3); //step为步数
+//        var_dump($result);
+        /**
+         *  //这个返回的是随机的键
+         *  mixed array_rand( array $input[, int $num_req = 1] )
+         *      从数组中取出一个或多个随机的单元，并返回随机条目的一个或多个键。
+         *      num_req
+                    指明了你想取出多少个单元。如果指定的数目超过了数组里的数量将会产生一个 E_WARNING 级别的错误。
+         */
+//        $result = array_rand($this->drr,1);
+//        var_dump($result);
     }
+
+    /**
+     *
+     */
 
 
 
