@@ -23,6 +23,7 @@ class ArrayStudy implements Base
         'two' => 1,
         'three' => [],
         'four' => '第一',
+        'test' => ['one'=>'test/one'],
     ];
     protected $crr = [1, 2, 3, 4, 5, 1];
     protected $drr = [];
@@ -40,6 +41,8 @@ class ArrayStudy implements Base
 //        $this->callableFunction();
 //        $this->sortFunction();
 //        $this->column();
+//        $this->computed();
+        $this->diffAndIntersect();
     }
 
     /**
@@ -408,18 +411,76 @@ class ArrayStudy implements Base
      *  //使用方法二，可以组成key=》value的值，也就是说可以实现某个二维数组中某两个值组成一个键一个值得搭配column
      */
     public function column(){
-        $a = [
-            [
-                'id'=>1,
-                'name'=>'first'
-            ],
-            [
-                'id'=>2,
-                'name'=>'second'
-            ]
-        ];
-        $arr = array_column($a,'name','id');
-        var_dump($arr);
+//        $a = [
+//            [
+//                'id'=>1,
+//                'name'=>'first'
+//            ],
+//            [
+//                'id'=>2,
+//                'name'=>'second'
+//            ]
+//        ];
+//        $arr = array_column($a,null,'name');
+//        $arr = array_column($a,'name','id');
+//        var_dump($arr);
+    }
+
+    /**
+     * 数组的计算
+     *      总列:
+     *          array_sum
+     *          array_merge
+     *          array_merge_recursive
+     */
+    public function computed(){
+        /**
+         *  number array_sum( array $array)
+         *      array_sum() 将数组中的所有值的和以整数或浮点数的结果返回。
+         */
+//        $result = array_sum($this->arr);
+//        var_dump($result);
+        /**
+         *  array array_merge( array $array1[, array $...] )
+         *  array_merge() 将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。
+                如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。
+                如果只给了一个数组并且该数组是数字索引的，则键名会以连续方式重新索引。
+         */
+//        $result = array_merge($this->arr,$this->brr,$this->crr); //覆盖和数字索引不会覆盖
+//        $result = array_merge($this->arr); //只给一个数组，那么键名会重新索引,适用于数字索引重新排序，和array_values有相同功能
+//        var_dump($result);
+        /**
+         *  array array_merge_recursive( array $array1[, array $...] )
+         *      array_merge_recursive() 将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。
+         *      如果输入的数组中有相同的字符串键名，则这些值会被合并到一个数组中去，这将递归下去，因此如果一个值本身是一个数组，
+         *        本函数将按照相应的条目把它合并为另一个数组。然而，如果数组具有相同的数组键名，后一个值将不会覆盖原来的值，
+         *           而是附加到后面。
+         */
+//        $result = array_merge_recursive($this->arr,$this->brr); //相同的字符串键名会合并到一个数组，但是不会递归合并，也就是说深度为一维
+//        var_dump($result);
+
+    }
+
+    /**
+     * 差集和交集
+     *  总列:
+     *      array_diff
+     *      array_intersect
+     */
+    public function diffAndIntersect(){
+        /**
+         *  典型的 A-B的集合
+         *  //该函数有一个限制，就是数组中的项只能是字符串或者数字
+         *  array array_diff( array $array1, array $array2[, array $...] )
+         *      对比返回在 array1 中但是不在 array2 及任何其它参数数组中的值。
+         */
+        $a = [1,2,3,4,5,6,7,'sss'];
+        $b = [2,4,6];
+        $result = array_diff($a,$b);
+        var_dump($result);
+
+
+
     }
 
 
