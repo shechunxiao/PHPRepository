@@ -220,6 +220,16 @@ class ArrayStudy implements Base
          */
 //        $result = array_chunk($this->crr,2,true);
 //        var_dump($result);
+        /**
+         *  array array_pad( array $input, int $pad_size, mixed $pad_value)
+         *      array_pad() 返回 input 的一个拷贝，并用 pad_value 将其填补到 pad_size 指定的长度。如果 pad_size 为正，则填补到数组的右侧，如果为负则从左侧开始填补。
+         *      如果 pad_size 的绝对值小于或等于 input 数组的长度则没有任何填补。
+         */
+//        $a = [1,2,3,4];
+//        $result =array_pad($a,-9,'张三');
+//        var_dump($result);
+
+
     }
 
     /**
@@ -463,6 +473,10 @@ class ArrayStudy implements Base
          */
 //        $result = array_merge_recursive($this->arr,$this->brr); //相同的字符串键名会合并到一个数组，但是不会递归合并，也就是说深度为一维
 //        var_dump($result);
+//        $ar1 = array("color" => array("favorite" => "red"), 5);
+//        $ar2 = array(10, "color" => array("favorite" => "green", "blue"));
+//        $result = array_merge_recursive($ar1, $ar2);
+//        print_r($result);
 
     }
 
@@ -614,11 +628,99 @@ class ArrayStudy implements Base
          */
 //        $result = array_rand($this->drr,1);
 //        var_dump($result);
+        /**
+         *  array array_change_key_case( array $input[, int $case = CASE_LOWER] )
+         *      array_change_key_case() 将 input 数组中的所有键名改为全小写或大写。改变是根据后一个选项 case 参数来进行的。本函数不改变数字索引。
+         *      返回一个键全是小写或者全是大写的数组；如果输入值（input）不是一个数组，那么返回FALSE
+         *      case
+                    可以在这里用两个常量，CASE_UPPER 或 CASE_LOWER（默认值）。
+         */
+//        $result = array_change_key_case($this->arr,CASE_UPPER);
+//        var_dump($result);
+        /**
+         *  array array_combine( array $keys, array $values)
+         *      创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值
+         *      keys
+                    将被作为新数组的键。非法的值将会被转换为字符串类型（string）。
+         *      values
+                    将被作为数组的值。
+         */
+//        $a = [1,2,3,4,null,null];
+//        $b = ['one','two','three','four','five','six'];
+//        $result = array_combine($a,$b);
+//        var_dump($result);
+        /**
+         *  该函数的局限性是只能用于字符串或者数字的数组
+         *  array array_count_values( array $input)
+         *      返回一个关联数组，用 input 数组中的值作为键名，该值在数组中出现的次数作为值。
+         */
+//        $result = array_count_values($this->crr);
+//        var_dump($result);
+        /**
+         *  该函数的用法是，key和value都不相同的情况下，才是A存在，B不存在，才返回
+         *  array array_diff_assoc( array $array1, array $array2[, array $...] )
+         *      array_diff_assoc() 返回一个数组，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。注意和 array_diff() 不同的是键名也用于比较。
+         *
+         */
+//        $array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+//        $array2 = array("a" => "green", "yellow", "red");
+//        $result = array_diff_assoc($array1,$array2);
+//        var_dump($result);
+        /**
+         *  array array_diff_key( array $array1, array $array2[, array $...] )
+         *      根据 array1 中的键名和 array2 进行比较，返回不同键名的项。本函数和 array_diff() 相同只除了比较是根据键名而不是值来进行的。
+         */
+//        $a = [1,2,3,4];
+//        $b = ['one','two','three'];
+//        $result = array_diff_key($a,$b);
+//        var_dump($result);
+        /**
+         *  array_diff(比较值),array_diff_key(比较键),array_diff_assoc(比较键和值)
+         */
+        /**
+         *  快速生成一个数组
+         *  array array_fill( int $start_index, int $num, mixed $value)
+         *      array_fill() 用 value 参数的值将一个数组填充 num 个条目，键名由 start_index 参数指定的开始。
+         *      返回填充后的数组
+         */
+//        $result = array_fill(2,5,'张三');
+//        var_dump($result);
+        /**
+         *  array array_fill_keys( array $keys, mixed $value)
+         *      使用 value 参数的值作为值，使用 keys 数组的值作为键来填充一个数组。
+         */
+//        $Keys = ['one','two','three'];
+//        $result = array_fill_keys($Keys,'中国');
+//        var_dump($result);
+        /**
+         *  array array_flip( array $trans)
+         *      array_flip() 返回一个反转后的 array，例如 trans 中的键名变成了值，而 trans 中的值成了键名。
+         *      注意 trans 中的值需要能够作为合法的键名，例如需要是 integer 或者 string。如果值的类型不对将发出一个警告，并且有问题的键／值对将不会反转。
+                如果同一个值出现了多次，则最后一个键名将作为它的值，所有其它的都丢失了。
+         *      成功时返回交换后的数组，如果失败返回 NULL。
+         */
+//        $result = @array_flip($this->arr); //加@抑制错误的显示
+//        var_dump($result);
+        /**
+         * 通过key比较，两个数组中的key相同的
+         *  array array_intersect_key( array $array1, array $array2[, array $ ...] )
+         *      array_intersect_key() 返回一个数组，该数组包含了所有出现在 array1 中并同时出现在所有其它参数数组中的键名的值。
+         */
+//        $a = [1,2,3,4];
+//        $b = ['one','a'=>122,'two'];
+//        $result = array_intersect_key($a,$b);
+//        var_dump($result);
+        /**
+         *  array array_intersect_assoc( array $array1, array $array2[, array $ ...] )
+         *  array_intersect_assoc() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意和 array_intersect() 不同的是键名也用于比较。
+         */
+//        $a = [1,2,3,4];
+//        $b = ['one',2,'three','four'];
+//        $result = array_intersect_assoc($a,$b);
+//        var_dump($result);
+
     }
 
-    /**
-     *
-     */
 
 
 
