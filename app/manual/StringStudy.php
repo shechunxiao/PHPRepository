@@ -340,6 +340,26 @@ class StringStudy implements Base
 //        $result = chr(65);
 //        $result = ord('B');
 //        var_dump($result);
+        /**
+         *  string json_encode( mixed $value[, int $options = 0[, int $depth = 512]] )
+         *  mixed json_decode( string $json[, bool $assoc = false[, int $depth = 512[, int $options = 0]]] )
+         *      接受一个 JSON 格式的字符串并且把它转换为 PHP 变量
+         *      json
+                    待解码的 json string 格式的字符串。
+         *      assoc
+                    当该参数为 TRUE 时，将返回 array 而非 object 。
+         */
+//        $arr = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+//        $result = json_encode($arr);
+//        $result = json_decode($result,true);
+//        var_dump($result);
+        /**
+         *  string nl2br( string $string[, bool $is_xhtml = true] )
+         *      在字符串 string 所有新行之前插入 '<br />' 或 '<br>'，并返回。
+         */
+        $a = "foo isn't\n bar";
+        $result = nl2br($a);
+        var_dump($result);
 
     }
 
