@@ -54,9 +54,14 @@ require 'app/Constant.php'; //定义常量
 /**
  * PCRE函数
  */
-$preg = new \app\manual\Preg();
-$preg->index();
+//$preg = new \app\manual\Preg();
+//$preg->index();
 
+/**
+ * BC高精度数字函数
+ */
+$bc = new \app\manual\Bc();
+$bc->index();
 
 
 

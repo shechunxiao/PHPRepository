@@ -13,6 +13,7 @@
             ClassAndObject.php(类和对象函数)
             Regular.php(正则表达式)
             Preg.php(PCRE函数)
+            Bc.php(BC高精度函数)
     2.bootstrap(Composer加载类)
     3.vendor(Composer依赖包)
     4.composer.json(Composer配置文件)
