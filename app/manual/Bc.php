@@ -4,7 +4,6 @@
 namespace app\manual;
 
 use app\interfaces\Base;
-use Closure;
 
 class Bc implements Base{
 

@@ -63,6 +63,12 @@ require 'app/Constant.php'; //定义常量
 //$bc = new \app\manual\Bc();
 //$bc->index();
 
+/**
+ * GD库
+ */
+$gd = new \app\manual\GD();
+$gd->index();
+
 
 
 
