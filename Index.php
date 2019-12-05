@@ -51,7 +51,11 @@ require 'app/Constant.php'; //定义常量
 //$classAndObject = new \app\manual\ClassAndObject();
 //$classAndObject->index();
 
-
+/**
+ * PCRE函数
+ */
+$preg = new \app\manual\Preg();
+$preg->index();
 
 
 

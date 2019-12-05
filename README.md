@@ -11,6 +11,7 @@
             ArrayStudy.php(数组学习)
             StringStudy.php(字符串学习)
             ClassAndObject.php(类和对象函数)
+            Regular.php(正则表达式)
             Preg.php(PCRE函数)
     2.bootstrap(Composer加载类)
     3.vendor(Composer依赖包)
