@@ -42,8 +42,14 @@ require 'app/Constant.php'; //定义常量
 /**
  * 字符串函数研究
  */
-$string = new \app\manual\StringStudy();
-$string->index();
+//$string = new \app\manual\StringStudy();
+//$string->index();
+
+/**
+ * 类和对象
+ */
+//$classAndObject = new \app\manual\ClassAndObject();
+//$classAndObject->index();
 
 
 

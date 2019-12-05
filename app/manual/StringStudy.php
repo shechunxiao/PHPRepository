@@ -7,7 +7,7 @@ use Cassandra\Varint;
 
 class StringStudy implements Base
 {
-
+    public $s = 1312321;
     protected $str = ' this is a test';
     protected $str2 = 'http://waiterapp.shechunxiao.com/group=business&action=index&method=menu#/business/ticket/lists';
 
@@ -357,9 +357,231 @@ class StringStudy implements Base
          *  string nl2br( string $string[, bool $is_xhtml = true] )
          *      在字符串 string 所有新行之前插入 '<br />' 或 '<br>'，并返回。
          */
-        $a = "foo isn't\n bar";
-        $result = nl2br($a);
-        var_dump($result);
+//        $a = "foo isn't\n bar";
+//        $result = nl2br($a);
+//        var_dump($result);
+        /**
+         *  string implode( string $glue, array $pieces) //用分隔符的连接
+         *  string implode( array $pieces) //直接连接
+         */
+//        $arr = [1,2,3];
+//        $result = implode('',$arr);
+//        $result = implode($arr); //直接连接
+//        var_dump($result);
+        /**
+         *  array explode( string $delimiter, string $string[, int $limit] )
+         *  此函数返回由字符串组成的数组，每个元素都是 string 的一个子串，它们被字符串 delimiter 作为边界点分割出来。
+         *  delimiter
+                边界上的分隔字符。
+            string
+                输入的字符串。
+            limit
+                如果设置了 limit 参数并且是正数，则返回的数组包含最多 limit 个元素，而最后那个元素将包含 string 的剩余部分。
+                如果 limit 参数是负数，则返回除了最后的 -limit 个元素外的所有元素。
+                如果 limit 是 0，则会被当做 1。
+         */
+//        $str = '1,2,3,4,5,6';
+//        $result = explode(',',$str);
+//        var_dump($result);
+        /**
+         *  千位分割格式化
+         *  string number_format( float $number[, int $decimals = 0] )
+         *  string number_format( float $number, int $decimals = 0, string $dec_point = ".", string $thousands_sep = ",")
+         *      本函数可以接受1个、2个或者4个参数（注意：不能是3个）:
+         *      如果只提供第一个参数，number的小数部分会被去掉并且每个千位分隔符都是英文小写逗号","
+                如果提供两个参数，number将保留小数点后的位数到你设定的值，其余同楼上
+                如果提供了四个参数，number 将保留decimals个长度的小数部分, 小数点被替换为dec_point，千位分隔符替换为thousands_sep
+         */
+//        $a = 43243212.52943243234232;
+//        $result = number_format($a); //只提供一个参数的时候，是四舍五入
+//        $result = number_format($a,2); //也是四舍五入
+//        $result = number_format($a,2,'/','@');
+//        var_dump($result);
+        /**
+         *  string trim( string $str[, string $charlist = " \t\n\r\0\x0B"] )
+         *  string ltrim( string $str[, string $character_mask] )
+         *  string rtrim( string $str[, string $character_mask] )
+         */
+//        $a = 'zhangsna/,     *';
+//        $result = trim($a,'* ,'); //和结尾的顺序无关，只要有这个存在就去掉
+//        var_dump($result);
+        /**
+         *  string iconv( string $in_charset, string $out_charset, string $str)
+         *      将字符串 str 从 in_charset 转换编码到 out_charset。
+         */
+//        $a = '张三是一个ren';
+//        $result = iconv('UTF-8','GBK',$a);
+//        var_dump($result);
+        /**
+         *  默认是40个字符
+         *  string sha1( string $str[, bool $raw_output = false] )
+         *      str
+                    输入字符串。
+                raw_output
+                    如果可选的 raw_output 参数被设置为 TRUE，那么 sha1 摘要将以 20 字符长度的原始格式返回，否则返回值是一个 40 字符长度的十六进制数字。
+         */
+//        $a = '发生的范德萨';
+//        $result = sha1($a,false);
+//        var_dump($result);
+//        var_dump(strlen($result));
+        /**
+         *  默认是32个字符
+         *  string md5( string $str[, bool $raw_output = false] )
+         *  str
+                原始字符串。
+            raw_output
+                如果可选的 raw_output 被设置为 TRUE，那么 MD5 报文摘要将以16字节长度的原始二进制格式返回。
+         */
+//        $a = '付水电费第三方';
+//        $result = md5($a);
+//        var_dump($result);
+//        var_dump(strlen($result));
+        /**
+         *  string addcslashes( string $str, string $charlist)
+         *      返回字符串，该字符串在属于参数 charlist 列表中的字符前都加上了反斜线。
+         *      当定义 charlist 参数中的字符序列时，需要确实知道介于自己设置的开始及结束范围之内的都是些什么字符。
+         */
+//        $a = 'fdsfds/fdfd.fdfds/fdsfds213@12\\r\\nfdsfdsds';
+//        $result = addcslashes($a,'./@');
+//        var_dump($result);
+//        $a = "张三\r\n李四";
+//        var_dump($a);
+        /**
+         *  string stripcslashes( string $str)
+         *  返回反转义后的字符串。
+         */
+//        $a = 'fd@fdsfds/fdsfds,';
+//        $result = addcslashes($a,'@/,');
+//        $result = stripcslashes($result);
+//        var_dump($result);
+        /**
+         *  string sprintf( string $format[, mixed $args[, mixed $...]] )
+         *      format	必需。规定字符串以及如何格式化其中的变量。
+                可能的格式值：
+                %% - 返回一个百分号 %
+                %b - 二进制数
+                %c - ASCII 值对应的字符
+                %d - 包含正负号的十进制数（负数、0、正数）
+                %e - 使用小写的科学计数法（例如 1.2e+2）
+                %E - 使用大写的科学计数法（例如 1.2E+2）
+                %u - 不包含正负号的十进制数（大于等于 0）
+                %f - 浮点数（本地设置）
+                %F - 浮点数（非本地设置）
+                %g - 较短的 %e 和 %f
+                %G - 较短的 %E 和 %f
+                %o - 八进制数
+                %s - 字符串
+                %x - 十六进制数（小写字母）
+                %X - 十六进制数（大写字母）
+                附加的格式值。必需放置在 % 和字母之间（例如 %.2f）：
+
+                + （在数字前面加上 + 或 - 来定义数字的正负性。默认情况下，只有负数才做标记，正数不做标记）
+                ' （规定使用什么作为填充，默认是空格。它必须与宽度指定器一起使用。例如：%'x20s（使用 "x" 作为填充））
+                - （左调整变量值）
+                [0-9] （规定变量值的最小宽度）
+                .[0-9] （规定小数位数或最大字符串长度）
+                注释：如果使用多个上述的格式值，它们必须按照上面的顺序进行使用，不能打乱。
+
+                arg1	必需。规定插到 format 字符串中第一个 % 符号处的参数。
+                arg2	可选。规定插到 format 字符串中第二个 % 符号处的参数。
+                arg++	可选。规定插到 format 字符串中第三、四等等 % 符号处的参数。
+         */
+//        $a = 123.45;
+//        $b = 1232321321.3213333333333333;
+//        $result = sprintf('%%-%b',$a);
+//        var_dump($result);
+//        $result = sprintf('%%-%c',97);
+//        var_dump($result);
+//        $result = sprintf('%%-%d',$a); //直接把小数点去掉了,割舍小数部分
+//        var_dump($result);
+//        $result = sprintf('%%-%e',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%E',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%u',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%f',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%F',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%g',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%G',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%o',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%s',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%x',$b);
+//        var_dump($result);
+//        $result = sprintf('%%-%X',$b);
+//        var_dump($result);
+//        $c = 12;
+//        $result =sprintf('%%-%02s',$c);
+//        var_dump($result);
+//        $d = 25.14;
+//        var_dump(sprintf("%.".(2+1)."f", floatval($d)));
+//        $result = substr(sprintf("%.".(2+1)."f", floatval($d)), 0, -1);
+//        var_dump($result);
+//        $e = 123123.32131;
+//        $result = sprintf('%%-%.3f-%.3F',$e,$e);
+//        var_dump($result);
+        /**
+         *  string addslashes( string $str)
+         *      返回字符串，该字符串为了数据库查询语句等的需要在某些字符前加上了反斜线。这些字符是单引号（'）、双引号（"）、反斜线（\）与 NUL（NULL 字符）。
+         *  string stripslashes( string $str)
+         *      反引用一个引用字符串。
+         */
+//        $a = 'fdsfsdkjj313.1,1232null"1321';
+//        $result = addslashes($a);
+//        var_dump($result);
+//        $result = stripslashes($result);
+//        var_dump($result);
+        /**
+         *  string lcfirst( string $str)
+         *  string ucfirst( string $str)
+         */
+//        $a = 'word';
+//        $result = lcfirst($a);
+//        var_dump($result);
+//        $result = ucfirst($a);
+//        var_dump($result);
+        /**
+         *  //这个是用来解析url的
+         *  void parse_str( string $str[, array &$arr] )
+         *      将字符串解析成多个变量
+         *      如果 str 是 URL 传递入的查询字符串（query string），则将它解析为变量并设置到当前作用域。
+         *      str
+                    输入的字符串。
+                arr
+                    如果设置了第二个变量 arr，变量将会以数组元素的形式存入到这个数组，作为替代。
+         */
+//        $a = 'first=value&arr[]=foo+bar&arr[]=baz';
+//        parse_str($a,$b);
+//        var_dump($b);
+        /**
+         *  str_word_count — 返回字符串中单词的使用情况
+         *  mixed str_word_count( string $string[, int $format = 0[, string $charlist]] )
+         *      参数
+                string
+                    字符串。
+                format
+                    指定函数的返回值。当前支持的值如下：
+                    ◦ 0 - 返回单词数量
+                    ◦ 1 - 返回一个包含 string 中全部单词的数组
+                    ◦ 2 - 返回关联数组。数组的键是单词在 string 中出现的数值位置，数组的值是这个单词
+                charlist
+                    附加的字符串列表，其中的字符将被视为单词的一部分。
+         */
+//        $a = 'this is a test /';
+//        $result = str_word_count($a,2,'/');
+//        var_dump($result);
+        /**
+         *  string vsprintf( string $format, array $args)
+         *      作用与 sprintf() 函数类似，但是接收一个数组参数，而不是一系列可变数量的参数。
+         *      print vsprintf("%04d-%02d-%02d", explode('-', '1988-8-1')); // 1988-08-01
+         */
+
 
     }
 
