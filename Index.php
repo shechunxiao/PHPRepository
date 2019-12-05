@@ -60,8 +60,8 @@ require 'app/Constant.php'; //定义常量
 /**
  * BC高精度数字函数
  */
-$bc = new \app\manual\Bc();
-$bc->index();
+//$bc = new \app\manual\Bc();
+//$bc->index();
 
 
 
