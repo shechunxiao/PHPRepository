@@ -67,7 +67,7 @@ class GD implements Base
         $xsize = abs($size[0]) + abs($size[2]);
         $ysize = abs($size[5]) + abs($size[1]);
         imagettftext($pic,18,0,200-$xsize/2,300+$ysize/2,$black,$dir.'/simkai.ttf',$str);
-        
+
         imagepng($pic,'pic.png');
         imagedestroy($little);
         imagedestroy($new);
