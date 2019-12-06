@@ -56,7 +56,18 @@ class GD implements Base
         //上面两种比较麻烦，而且必须重新生成.imagecopy可以对原图素材裁剪,imagecopymerge可以对原图进行缩放并且合并到dst上
         imagecopy($pic,$little,175,425,60,60,50,50);
         imagecopymerge($pic,$new_ma,330,275,0,0,50,50,100);
-
+        //添加文字信息
+        $str = '幸福就在身边';
+        $size = imagettfbbox(18,0,$dir.'/simkai.ttf',$str);
+        /**
+         *  位置格式
+         *  {6,7} {4,5}
+            {0,1} {2,3}
+         */
+        $xsize = abs($size[0]) + abs($size[2]);
+        $ysize = abs($size[5]) + abs($size[1]);
+        imagettftext($pic,18,0,200-$xsize/2,300+$ysize/2,$black,$dir.'/simkai.ttf',$str);
+        
         imagepng($pic,'pic.png');
         imagedestroy($little);
         imagedestroy($new);
