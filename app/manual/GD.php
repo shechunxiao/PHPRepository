@@ -53,9 +53,12 @@ class GD implements Base
         $new_ma = imagecreatetruecolor(50,50);
         imagecopyresized($new_ma,$ma,0,0,0,0,50,50,887,1024);
         imagecopy($pic,$new_ma,20,275,0,0,50,50);
-        //上面两种比较麻烦，而且必须重新生成.imagecopy可以对原图素材裁剪,imagecopymerge可以对原图进行缩放并且合并到dst上
+        //上面两种比较麻烦，而且必须重新生成.imagecopy可以对原图素材裁剪,imagecopymerge可以对原图进行缩放并且合并到dst上,pct是合并的程度，0直接是透明的了
         imagecopy($pic,$little,175,425,60,60,50,50);
-        imagecopymerge($pic,$new_ma,330,275,0,0,50,50,100);
+        imagecopymerge($pic,$new_ma,330,275,0,0,50,50,20);
+        //添加文字
+        //首先需要获取文字box的尺寸用于在图中定位
+        $size = imagettfbbox(18,0,$dir.'/arial.ttf','文字测试大幅度');
 
         imagepng($pic,'pic.png');
         imagedestroy($little);
