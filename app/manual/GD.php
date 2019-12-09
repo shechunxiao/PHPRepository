@@ -9,8 +9,9 @@ class GD implements Base
 {
     public function index()
     {
-
-        $this->createEmpty();
+//        $this->createEmpty();
+//        $this->createEmptyPic();
+        $this->createFromString();
     }
     /**
      * imagecreatetruecolor //创建一张空白的
@@ -31,38 +32,73 @@ class GD implements Base
     public function createEmpty()
     {
         $dir = dirname(dirname(__DIR__));
-        $fileName = $dir.'/image/little.png';
-        $pic = imagecreatetruecolor(400,600);
+        $fileName = $dir . '/image/little.png';
+        $pic = imagecreatetruecolor(400, 600);
         $white = imagecolorallocate($pic, 255, 255, 255);
         $black = imagecolorallocate($pic, 0, 0, 0);
-        $black2 = imagecolorallocatealpha($pic,0,0,0,0.2);
-        $pick = imagecolorallocate($pic,212,36,98);
-        imagefill($pic,0,0,$white);
-        imageline($pic,0,0,400,600,$black);
-        imageline($pic,0,600,400,0,$black);
-        imagestring($pic,30,0,0,'imagestring',$pick);
+        $black2 = imagecolorallocatealpha($pic, 0, 0, 0, 0.2);
+        $pick = imagecolorallocate($pic, 212, 36, 98);
+        imagefill($pic, 0, 0, $white);
+        imageline($pic, 0, 0, 400, 600, $black);
+        imageline($pic, 0, 600, 400, 0, $black);
+        imagestring($pic, 30, 0, 0, 'imagestring', $pick);
         //处理上面的windows图,重新采集某个尺寸
         $little = imagecreatefrompng($fileName);
         $x = imagesx($little);
         $y = imagesy($little);
-        $new = imagecreatetruecolor(50,50);
-        imagecopyresampled($new,$little,0,0,50,50,50,50,50,50);
-        imagecopy($pic,$new,175,125,0,0,50,50);
+        $new = imagecreatetruecolor(50, 50);
+        imagecopyresampled($new, $little, 0, 0, 50, 50, 50, 50, 50, 50);
+        imagecopy($pic, $new, 175, 125, 0, 0, 50, 50);
         //处理马图,直接缩放了
-        $ma = imagecreatefromjpeg($dir.'/image/ma.jpeg');
-        $new_ma = imagecreatetruecolor(50,50);
-        imagecopyresized($new_ma,$ma,0,0,0,0,50,50,887,1024);
-        imagecopy($pic,$new_ma,20,275,0,0,50,50);
+        $ma = imagecreatefromjpeg($dir . '/image/ma.jpeg');
+        $new_ma = imagecreatetruecolor(50, 50);
+        imagecopyresized($new_ma, $ma, 0, 0, 0, 0, 50, 50, 887, 1024);
+        imagecopy($pic, $new_ma, 20, 275, 0, 0, 50, 50);
         //上面两种比较麻烦，而且必须重新生成.imagecopy可以对原图素材裁剪,imagecopymerge可以对原图进行缩放并且合并到dst上,pct是合并的程度，0直接是透明的了
-        imagecopy($pic,$little,175,425,60,60,50,50);
-        imagecopymerge($pic,$new_ma,330,275,0,0,50,50,20);
+        imagecopy($pic, $little, 175, 425, 60, 60, 50, 50);
+        imagecopymerge($pic, $new_ma, 330, 275, 0, 0, 50, 50, 20);
         //添加文字
         //首先需要获取文字box的尺寸用于在图中定位
-        $size = imagettfbbox(18,0,$dir.'/arial.ttf','文字测试大幅度');
+        $size = imagettfbbox(18, 0, $dir . '/arial.ttf', '文字测试大幅度');
 
-        imagepng($pic,'pic.png');
+        imagepng($pic, 'pic.png');
         imagedestroy($little);
         imagedestroy($new);
         imagedestroy($pic);
+    }
+
+    /**
+     *  创建一张空白图片
+     */
+    public function createEmptyPic()
+    {
+        $pic = imagecreatetruecolor(400, 600);
+        $pic_x = imagesx($pic);
+        $pic_y = imagesy($pic);
+        $red = imagecolorallocate($pic, 172, 16, 16);
+        $white = imagecolorallocate($pic, 255, 255, 255);
+        imagefill($pic, 0, 0, $white);
+        //画一个圆
+        imagefilledellipse($pic, 200, 300, 200, 200, $red);
+        imagepng($pic, 'mypic.png');
+        imagedestroy($pic);
+
+    }
+
+    /**
+     * 如果没有对应的图片创建流的方法，可以从图片的数据字符串中创建
+     */
+    public function createFromString()
+    {
+        $string = file_get_contents('shan.jpg');
+//        $pic = imagecreatefromjpeg('shan.jpg');
+        $pic = imagecreatefromstring($string);
+        $new = imagecreatetruecolor(400,800);
+        $white = imagecolorallocate($new, 255, 255, 255);
+        imagefill($new,0,0,$white);
+        imagecopyresized($new,$pic,0,0,0,0,400,300,imagesx($pic),imagesy($pic));
+        imagepng($new,'newshan.png');
+        imagedestroy($pic);
+        imagedestroy($new);
     }
 }
