@@ -97,6 +97,8 @@ class GD implements Base
         $white = imagecolorallocate($new, 255, 255, 255);
         imagefill($new,0,0,$white);
         imagecopyresized($new,$pic,0,0,0,0,400,300,imagesx($pic),imagesy($pic));
+        imageflip($new,IMG_FLIP_VERTICAL);
+        imagecolortransparent($new,$white);
         imagepng($new,'newshan.png');
         imagedestroy($pic);
         imagedestroy($new);
