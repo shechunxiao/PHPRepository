@@ -66,9 +66,42 @@ require 'app/Constant.php'; //定义常量
 /**
  * GD库
  */
-$gd = new \app\manual\GD();
-$gd->index();
+//$gd = new \app\manual\GD();
+//$gd->index();
 
+$arr = [
+    ['A1', 'A2', 'A3'],
+    ['B1', 'B2'],
+    ['C1'],
+    ['D1','D2','D3','D4','D5']
+];
+$brr = [
+    ['A1','A2'],
+    ['B1','B2','B3'],
+    ['C1','C2','C3','C4'],
+    ['D1','D2'],
+];
+
+function test($arr)
+{
+    $result = array_reduce($arr,function($v,$m){
+        $temp = [];
+        foreach ($v as $vv){
+            foreach ($m as $mm){
+                if (empty($vv)){
+                    $temp[] = $mm;
+                }else{
+                    $temp[] = $vv.';'.$mm;
+                }
+            }
+        }
+        return $temp;
+    },['']);
+    return $result;
+}
+
+$result = test($brr);
+var_dump($result);
 
 
 
