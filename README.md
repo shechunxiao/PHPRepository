@@ -15,6 +15,7 @@
             Preg.php(PCRE函数)
             Bc.php(BC高精度函数)
             GD.php(GD库绘图函数)
+            Common.php(公共函数)
     2.bootstrap(Composer加载类)
     3.vendor(Composer依赖包)
     4.composer.json(Composer配置文件)
