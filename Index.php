@@ -75,6 +75,11 @@ require 'app/Constant.php'; //定义常量
 //$common = new \app\manual\CommonFunction();
 //$common->index();
 
+/**
+ * 目录
+ */
+$directory = new \app\manual\Directory();
+$directory->index();
 
 
 

@@ -41,7 +41,7 @@ class Preg implements Base{
                 array (size=3)
                     0 =>
                         array (size=2)
-                            0 => string 'test' (length=4)
+                            0 => string 'test.txt' (length=4)
                             1 => int 10
                     1 =>
                         array (size=2)
@@ -54,7 +54,7 @@ class Preg implements Base{
          *      offset
                     通常，搜索从目标字符串的开始位置开始。可选参数 offset 用于指定从目标字符串的某个未知开始搜索(单位是字节)。
          */
-//        $str = 'this is a test,there are too many people';
+//        $str = 'this is a test.txt,there are too many people';
 //        $pattern = "/(te)+(st)*/";
 //        $result = preg_match($pattern,$str,$matches,PREG_OFFSET_CAPTURE,10);
 //        var_dump($result);
@@ -80,7 +80,7 @@ class Preg implements Base{
                 offset
                     通常， 查找时从目标字符串的开始位置开始。可选参数offset用于从目标字符串中指定位置开始搜索(单位是字节)。
          */
-//        $str = "this is test ,there are test many last";
+//        $str = "this is test.txt ,there are test.txt many last";
 //        $pattern = "/(te)+(st)*/";
 //        $result = preg_match_all($pattern,$str,$matches,PREG_OFFSET_CAPTURE,5);
 //        var_dump($result);

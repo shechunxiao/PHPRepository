@@ -145,11 +145,11 @@ class Magic implements Base
     }
 
     /**
-     * test
+     * test.txt
      */
     public function test()
     {
-        echo 'magic/test';
+        echo 'magic/test.txt';
     }
 
     /**
