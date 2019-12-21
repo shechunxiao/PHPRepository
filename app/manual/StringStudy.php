@@ -8,7 +8,7 @@ use Cassandra\Varint;
 class StringStudy implements Base
 {
     public $s = 1312321;
-    protected $str = ' this is a test';
+    protected $str = ' this is a test.txt';
     protected $str2 = 'http://waiterapp.shechunxiao.com/group=business&action=index&method=menu#/business/ticket/lists';
 
     /**
@@ -573,7 +573,7 @@ class StringStudy implements Base
                 charlist
                     附加的字符串列表，其中的字符将被视为单词的一部分。
          */
-//        $a = 'this is a test /';
+//        $a = 'this is a test.txt /';
 //        $result = str_word_count($a,2,'/');
 //        var_dump($result);
         /**

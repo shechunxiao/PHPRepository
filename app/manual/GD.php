@@ -12,7 +12,7 @@ class GD implements Base
 //        $this->createEmpty();
 //        $this->createEmptyPic();
 //        $this->createFromString();
-//        $this->test();
+//        $this->test.txt();
 //        $this->createFromString2();
 //        $this->lineAndFill();
         $this->touming();

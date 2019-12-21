@@ -23,7 +23,7 @@ class ArrayStudy implements Base
         'two' => 1,
         'three' => [],
         'four' => '第一',
-        'test' => ['one' => 'test/one'],
+        'test.txt' => ['one' => 'test.txt/one'],
     ];
     protected $crr = [1, 2, 3, 4, 5, 1];
     protected $drr = ['one','two','three','four','five'];

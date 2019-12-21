@@ -81,6 +81,11 @@ require 'app/Constant.php'; //定义常量
 //$content = file_get_contents('pic.png');
 //file_put_contents('qr.jpg',$content);
 
+/**
+ * 目录
+ */
+$directory = new \app\manual\Directory();
+$directory->index();
 
 
 
