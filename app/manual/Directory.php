@@ -42,8 +42,9 @@ class Directory implements Base
 //        closedir($handle);
 //
 //        var_dump(scandir('./dir'));
-        var_dump(basename('/dir/test.txt','.txt'));
-
+//        var_dump(basename('/dir/test.txt','.txt'));
+//        var_dump(basename('/dir/test.txt'));
+//        var_dump(dirname('/dir/test.txt'));
 
 
     }
