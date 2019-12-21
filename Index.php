@@ -75,6 +75,12 @@ require 'app/Constant.php'; //定义常量
 //$common = new \app\manual\CommonFunction();
 //$common->index();
 
+/**
+ * 图片覆盖
+ */
+//$content = file_get_contents('pic.png');
+//file_put_contents('qr.jpg',$content);
+
 
 
 
