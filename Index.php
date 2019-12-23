@@ -84,8 +84,8 @@ require 'app/Constant.php'; //定义常量
 /**
  * 目录
  */
-$directory = new \app\manual\Directory();
-$directory->index();
+//$directory = new \app\manual\Directory();
+//$directory->index();
 
 
 
