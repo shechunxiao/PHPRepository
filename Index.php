@@ -87,6 +87,29 @@ require 'app/Constant.php'; //定义常量
 //$directory = new \app\manual\Directory();
 //$directory->index();
 
+/**
+ * 尾部去掉零
+ */
+//function decimalRemoveZero($args){
+//    if($args == ceil($args)){
+//        $data = (int)$args;
+//    }elseif( 10*$args == ceil(10*$args)){
+//        $data = (int)(10*$args)/10;
+//    }else{
+//        $data = $args;
+//    }
+//    return $data;
+//}
+
+//var_dump(decimalRemoveZero(0.00));
+
+
+
+
+
+
+
+
 
 
 
