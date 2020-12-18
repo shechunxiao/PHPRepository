@@ -94,6 +94,28 @@ class ArrayStudy implements Base
      *          61.array_replace_recursive
      *
      *          手册一共是79
+     *
+     *          未研究的
+     *          1.array_diff_uassoc
+     *          2.array_diff_ukey
+     *          3.array_intersect_uassoc
+     *          4.array_intersect_ukey
+     *          5.array_multisort
+     *          6.array_product
+     *          7.array_udiff_assoc
+     *          8.array_udiff_uassoc
+     *          9.array_udiff
+     *          10.array_uintersect_assoc
+     *          11.array_uintersect_uassoc
+     *          12.array_uintersect
+     *          13.array_walk_recursive
+     *          13.count
+     *          14.natcasesort
+     *          15.sizeof
+     *          16.uasort
+     *          17.uksort
+     *          18.usort
+     *
      */
 
     /**
@@ -242,6 +264,7 @@ class ArrayStudy implements Base
      *      2.array_splice
      *      3.array_chunk
      *      4.array_pad
+     *      5.array_fill
      */
     public function spliceAndPad()
     {

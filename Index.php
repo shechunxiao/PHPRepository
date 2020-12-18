@@ -4,6 +4,7 @@ use app\Entry;
 use app\manual\DataType;
 use app\manual\Magic;
 use app\manual\MagicConstant;
+use app\manual\NewArray;
 
 require 'bootstrap/app.php'; //composer自动加载
 require 'app/Constant.php'; //定义常量
@@ -33,11 +34,18 @@ require 'app/Constant.php'; //定义常量
 //$magic2 = clone $magic;
 //echo $magic2->name;
 
-/**
- * 数组函数研究
- */
-$array = new \app\manual\ArrayStudy();
-$array->index();
+///**
+// * 数组函数研究
+// */
+//$array = new \app\manual\ArrayStudy();
+//$array->index();
+// 新数组研究
+
+$newArray = new NewArray();
+$newArray->index();
+
+
+
 
 ///**
 // * 字符串函数研究
