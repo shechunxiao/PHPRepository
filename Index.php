@@ -39,9 +39,9 @@ require 'app/Constant.php'; //定义常量
 $array = new \app\manual\ArrayStudy();
 $array->index();
 
-/**
- * 字符串函数研究
- */
+///**
+// * 字符串函数研究
+// */
 //$string = new \app\manual\StringStudy();
 //$string->index();
 
