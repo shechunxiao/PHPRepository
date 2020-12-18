@@ -261,8 +261,10 @@ class NewArray
      * array_chunk — 将一个数组分割成多个小数组，每个小数组的个数由size决定
      * array_slice — 从数组中取出一段(不会改变原数组)
      * array_splice — 把数组中的一部分去掉并用其它值取代(会改变原数组)
-     *  array_pad — 用值将数组填补到指定长度
+     * array_pad — 用值将数组填补到指定长度
      * array_fill — 用给定的值填充生成一个新数组
+     * range — 建立一个包含指定范围单元的数组
+     * array_fill_keys — 使用指定的键和值填充数组
      */
     public function frag_fit()
     {
@@ -377,15 +379,15 @@ class NewArray
          * 如果 pad_size 为正，则填补到数组的右侧，如果为负则从左侧开始填补。
          * 如果 pad_size 的绝对值小于或等于 input 数组的长度则没有任何填补。
          */
-        $pad_array = [1,2,3,4,5];
+        $pad_array = [1, 2, 3, 4, 5];
 
-        $result = array_pad($pad_array,4,'填'); // pad_size的绝对值 <= 原始数组的元素个数,则不填充
+        $result = array_pad($pad_array, 4, '填'); // pad_size的绝对值 <= 原始数组的元素个数,则不填充
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 )
 
 //        $result = array_pad($pad_array,8,'填'); // pad_size为正数，则向右填充
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 填 [6] => 填 [7] => 填 )
 
-        $result = array_pad($pad_array,-8,'填'); // pad_size为负数，则向左填充
+        $result = array_pad($pad_array, -8, '填'); // pad_size为负数，则向左填充
 //        print_r($result); // 结果 Array ( [0] => 填 [1] => 填 [2] => 填 [3] => 1 [4] => 2 [5] => 3 [6] => 4 [7] => 5 )
 
         // pad_value可以是string，数组，布尔等等几乎所有类型
@@ -399,14 +401,46 @@ class NewArray
          * value 用来填充的值。
          * 返回值: 返回填充后的数组。
          */
-        $result = array_fill(-2,3,'fill'); //如果 start_index 是负数，那么返回的数组的第一个索引将会是 start_index ，而后面索引则从0开始。
+        $result = array_fill(-2, 3, 'fill'); //如果 start_index 是负数，那么返回的数组的第一个索引将会是 start_index ，而后面索引则从0开始。
 //        print_r($result); // 结果 Array ( [-2] => fill [0] => fill [1] => fill )
-        $result = array_fill(4,5,'fill'); // 如果 start_index是正数，那么按正常索引排序
+        $result = array_fill(4, 5, 'fill'); // 如果 start_index是正数，那么按正常索引排序
 //        print_r($result); // 结果 Array ( [4] => fill [5] => fill [6] => fill [7] => fill [8] => fill )
-        $result = array_fill(0,10,'fill'); // 正常用法
+        $result = array_fill(0, 10, 'fill'); // 正常用法
 //        print_r($result); // 结果 Array ( [0] => fill [1] => fill [2] => fill [3] => fill [4] => fill [5] => fill [6] => fill [7] => fill [8] => fill [9] => fill )
 
-        
+        /**
+         * range — 建立一个包含指定范围单元的数组
+         * array range( mixed $start, mixed $limit[, number $step = 1] )
+         * 建立一个包含指定范围单元的数组。
+         * start 序列的第一个值。
+         * limit 序列结束于 limit 的值。
+         * step 如果给出了 step 的值，它将被作为单元之间的步进值。step 应该为正值。如果未指定，step 则默认为 1。
+         * 返回: 返回填充后的数组
+         */
+//        $result = range(0,5);
+//        print_r($result); // 结果 Array ( [0] => 0 [1] => 1 [2] => 2 [3] => 3 [4] => 4 [5] => 5 )
+
+//        $result = range(0,-5);
+//        print_r($result); // 结果 Array ( [0] => 0 [1] => -1 [2] => -2 [3] => -3 [4] => -4 [5] => -5 )
+
+//        $result = range(0,5,2); // step = 2
+//        print_r($result); // 结果 Array ( [0] => 0 [1] => 2 [2] => 4 )
+
+        // 从上面可以看出，start是初始值，limit是结束值，step是步进值
+
+        /**
+         * array_fill_keys — 使用指定的键和值填充数组
+         * array array_fill_keys( array $keys, mixed $value)
+         * 使用 value 参数的值作为值，使用 keys 数组的值作为键来填充一个数组。
+         * keys 使用该数组的值作为键。非法值将被转换为字符串。
+         * value 填充使用的值。
+         * 返回: 返回填充后的数组
+         */
+        $keys = ['one', 'two', null, '', true];
+        $values = '充';
+        $result = array_fill_keys($keys, $values);
+//        print_r($result); // 结果 Array ( [one] => 充 [two] => 充 [] => 充 [1] => 充 )  null,''是非法值都变为空，true转换成了1
+
     }
 
 }

@@ -77,7 +77,7 @@ class ArrayStudy implements Base
      *          44.array_unique
      *          45.array_reverse
      *          46.shuffle
-     *          47.range
+     *          47.range |
      *          48.array_rand
      *          49.array_change_key_case
      *          50.array_combine
@@ -86,7 +86,7 @@ class ArrayStudy implements Base
      *          53.array_diff_key
      *          54.array_diff
      *          55.array_fill
-     *          56.array_fill_keys
+     *          56.array_fill_keys |
      *          57.array_flip
      *          58.array_intersect_key
      *          59.array_intersect_assoc
