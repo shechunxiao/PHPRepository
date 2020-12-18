@@ -443,4 +443,23 @@ class NewArray
 
     }
 
+    /**
+     * 栈
+     */
+    public function push_pop()
+    {
+        /**
+         * array_push — 将一个或多个单元压入数组的末尾（入栈）
+         * int array_push( array &$array, mixed $var[, mixed $...] )
+         * array_push() 将 array 当成一个栈，并将传入的变量压入 array 的末尾。array 的长度将根据入栈变量的数目增加。和如下效果相同,并对每个 var 重复以上动作。
+         *      $array[] = $var;
+         *      Note: 如果用 array_push() 来给数组增加一个单元，还不如用 $array[] = ，因为这样没有调用函数的额外负担。
+         *      Note: 如果第一个参数不是数组，array_push() 将发出一条警告。这和 $var[] 的行为不同，后者会新建一个数组。
+         *
+         * array 输入的数组。
+         * var 要压入的值。
+         * 返回值: 返回处理之后数组的元素个数。
+         */
+    }
+
 }
