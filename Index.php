@@ -36,8 +36,8 @@ require 'app/Constant.php'; //定义常量
 /**
  * 数组函数研究
  */
-//$array = new \app\manual\ArrayStudy();
-//$array->index();
+$array = new \app\manual\ArrayStudy();
+$array->index();
 
 /**
  * 字符串函数研究
@@ -102,14 +102,15 @@ require 'app/Constant.php'; //定义常量
 //}
 
 //var_dump(decimalRemoveZero(0.00));
-$str = "张    三  发送 \r到发 方\n 式\r\n 订   单\t";
-var_dump($str);
-$str = str_replace(array("\r\n", "\r", "\n"," "), "", $str);
-var_dump($str);
 
-$headerInfo = ['商品条码','商品名称','商品分类','库存单位','参与优惠','单规格','建议零售价','规格条码','规格1','规格'];
-$headerInfo = array_slice($headerInfo,0,9);
-var_dump($headerInfo);
+//$str = "张    三  发送 \r到发 方\n 式\r\n 订   单\t";
+//var_dump($str);
+//$str = str_replace(array("\r\n", "\r", "\n"," "), "", $str);
+//var_dump($str);
+//
+//$headerInfo = ['商品条码','商品名称','商品分类','库存单位','参与优惠','单规格','建议零售价','规格条码','规格1','规格'];
+//$headerInfo = array_slice($headerInfo,0,9);
+//var_dump($headerInfo);
 
 
 
