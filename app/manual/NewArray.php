@@ -28,7 +28,8 @@ class NewArray
 //        $this->column_fun();
 //        $this->calculate_fun();
 //        $this->diff_intersect();
-        $this->pointer_fun();
+//        $this->pointer_fun();
+        $this->other();
     }
 
     /**
@@ -1162,6 +1163,72 @@ class NewArray
 //        print_r($v3); // 结果 3
 
 
+    }
+
+    /**
+     * 其他常用的函数
+     * array_unique — 移除数组中重复的值
+     */
+    public function other()
+    {
+        /**
+         * array_unique — 移除数组中重复的值
+         * array array_unique( array $array[, int $sort_flags = SORT_STRING] )
+         * array_unique() 接受 array 作为输入并返回没有重复值的新数组。
+         * 注意键名保留不变。array_unique() 先将值作为字符串排序，然后对每个值只保留第一个遇到的键名，接着忽略所有后面的键名。
+         * 这并不意味着在未排序的 array 中同一个值的第一个出现的键名会被保留。
+         * 当且仅当 (string) $elem1 === (string) $elem2 时两个单元被认为相同。就是说，当字符串的表达一样时。 第一个单元将被保留。
+         * @param array 输入的数组
+         * @param sort_flags
+         * ◦ SORT_REGULAR - 正常比较(不改变类型)
+         * ◦ SORT_NUMERIC - 以数字的形式比较
+         * ◦ SORT_STRING - 以字符串的形式比较(默认值)
+         * ◦ SORT_LOCALE_STRING - 根据当前的区域（locale）设置来把单元当作字符串比较(基本不用)
+         * @return array 返回去重后的数组
+         */
+        // SORT_REGULAR - 正常比较(不改变类型)
+//        $a = ["a" => "green", "red", "b" => "green", "blue", "red", 1, '1'];
+//        $result = array_unique($a,SORT_REGULAR);
+//        print_r($result); // 结果 Array ( [a] => green [0] => red [1] => blue [3] => 1 )
+
+        // SORT_NUMERIC - 以数字的形式比较
+//        $a = ["a" => "green", "red", "b" => "green", "blue", "red", 1, '1'];
+//        $result = array_unique($a, SORT_NUMERIC);
+//        print_r($result); // 结果 Array ( [a] => green [3] => 1 )
+
+//        $a = ["a" => "1", "1", "2" => "2", "3", "4", 5, '6'];
+//        $result = array_unique($a, SORT_NUMERIC);
+//        print_r($result); // 结果 Array ( [a] => 1 [2] => 2 [3] => 3 [4] => 4 [5] => 5 [6] => 6 )
+
+        // SORT_STRING - 以字符串的形式比较
+//        $a = ["a" => "green", "red", "b" => "green", "blue", "red", 1, '1'];
+//        $result = array_unique($a, SORT_STRING);
+//        print_r($result); // 结果 Array ( [a] => green [0] => red [1] => blue [3] => 1 )
+
+        /**
+         * array_reverse — 返回一个单元顺序相反的数组
+         * array array_reverse( array $array[, bool $preserve_keys = false] )
+         * array_reverse() 接受数组 array 作为输入并返回一个单元为相反顺序的新数组。
+         * @param array 输入的数组。
+         * @param bool preserve_keys 如果设置为 TRUE 会保留数字的键。非数字的键则不受这个设置的影响，总是会被保留。
+         */
+//        $a = [1, 2, '张三', 3, '李四', 4, 5];
+//        $result = array_reverse($a);
+//        print_r($result); // 结果 Array ( [0] => 5 [1] => 4 [2] => 李四 [3] => 3 [4] => 张三 [5] => 2 [6] => 1 )
+
+        // 设置第二个参数,保留key
+//        $a = [1, 2, '张三', 3, '李四', 4, 5];
+//        $result = array_reverse($a,true);
+//        print_r($result); // 结果 Array ( [6] => 5 [5] => 4 [4] => 李四 [3] => 3 [2] => 张三 [1] => 2 [0] => 1 )
+
+        /**
+         * shuffle — 将数组打乱
+         * bool shuffle( array &$array)
+         * 成功时返回 TRUE， 或者在失败时返回 FALSE。
+         */
+//        $a = [1, 2, 3, 4, 5];
+//        $result = shuffle($a);
+//        print_r($a); // 结果 随机的
     }
 
 }
