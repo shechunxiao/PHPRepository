@@ -1229,6 +1229,24 @@ class NewArray
 //        $a = [1, 2, 3, 4, 5];
 //        $result = shuffle($a);
 //        print_r($a); // 结果 随机的
+
+        /**
+         * array_rand — 从数组中随机取出一个或多个单元
+         * mixed array_rand( array $input[, int $num_req = 1] )
+         * 从数组中取出一个或多个随机的单元，并返回随机条目的一个或多个键。
+         * @param array input 输入的数组。
+         * @param int num_req 指明了你想取出多少个单元。如果指定的数目超过了数组里的数量将会产生一个 E_WARNING 级别的错误。
+         * @return mixed 如果你只取出一个，array_rand() 返回一个随机单元的键名，否则就返回一个包含随机键名的数组。这样你就可以随机从数组中取出键名和值。
+         */
+        $a = [1, 2, 3, 4, 5];
+        // 只取出一个
+//        $result = array_rand($a);
+//        print_r($result); // 结果，随机一个值,如5
+
+        // 取出多个
+//        $result = array_rand($a,2);
+//        print_r($result); // 结果，随机一个数组,如Array ( [0] => 2 [1] => 4 )
+
     }
 
 }
