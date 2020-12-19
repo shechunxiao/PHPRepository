@@ -25,8 +25,10 @@ class NewArray
 //        $this->shift_unshift();
 //        $this->call_fun();
 //        $this->sort_fun();
-        $this->column_fun();
-
+//        $this->column_fun();
+//        $this->calculate_fun();
+//        $this->diff_intersect();
+        $this->pointer_fun();
     }
 
     /**
@@ -954,5 +956,212 @@ class NewArray
 
     }
 
+
+    /**
+     * 计算
+     * array_sum — 计算数组中所有值的和
+     * array_merge — 合并一个或多个数组
+     * array_merge_recursive — 递归地合并一个或多个数组
+     */
+    public function calculate_fun()
+    {
+        /**
+         * array_sum — 计算数组中所有值的和
+         * number array_sum( array $array)
+         * array_sum() 将数组中的所有值的和以整数或浮点数的结果返回。
+         * @input array 输入的数组
+         * @return number 所有值的和以整数或浮点数的结果返回
+         */
+//        // 整数
+//        $a = [1, 2, 3, 4, 5];
+//        $result = array_sum($a);
+//        print_r($result); // 结果 15
+
+        // 浮点数
+//        $a = [1.25, 2.14, 3.12, 4.87, 5.34];
+//        $result = array_sum($a);
+//        print_r($result); // 结果 16.72
+
+        /**
+         * array_merge — 合并一个或多个数组
+         * array array_merge( array $array1[, array $...] )
+         * array_merge()
+         *  将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组
+         *  如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。
+         *  如果只给了一个数组并且该数组是数字索引的，则键名会以连续方式重新索引。
+         */
+        // 如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面
+//        $a = ['name' => '张三', 'age' => 18, 'info' => ['测试', '年龄']];
+//        $b = ['address' => '山东', 'name' => '李四'];
+//        $result = array_merge($a, $b);
+//        print_r($result); // 结果 Array ( [name] => 李四 [age] => 18 [info] => Array ( [0] => 测试 [1] => 年龄 ) [address] => 山东 )
+
+        // 如果只给了一个数组并且该数组是数字索引的，则键名会以连续方式重新索引。注意array_values也会重新索引数组
+//        $a = [4 => 1, 5 => 2];
+//        $result = array_merge($a);
+//        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 )
+
+        /**
+         * array_merge_recursive — 递归地合并一个或多个数组
+         * array array_merge_recursive( array $array1[, array $...] )
+         * array_merge_recursive() 将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。
+         * 如果输入的数组中有相同的字符串键名，则这些值会被合并到一个数组中去，这将递归下去，
+         * 因此如果一个值本身是一个数组，本函数将按照相应的条目把它合并为另一个数组。
+         * 然而，如果数组具有相同的数组键名，后一个值将不会覆盖原来的值，而是附加到后面。
+         */
+        // 多个数组
+//        $a = ['name' => '张三', 'age' => 18, 'info' => ['测试', '年龄']];
+//        $b = ['address' => '山东', 'name' => '李四', 'age' => 25];
+//        $result = array_merge_recursive($a, $b);
+//        print_r($result); // 结果 Array ( [name] => Array ( [0] => 张三 [1] => 李四 ) [age] => Array ( [0] => 18 [1] => 25 ) [info] => Array ( [0] => 测试 [1] => 年龄 ) [address] => 山东 )
+
+        // 只有一个数组,不会重新索引数组
+//        $a = ['name' => '张三', 'age' => 18, 'info' => ['测试', '年龄']];
+//        $result = array_merge_recursive($a);
+//        print_r($result); // 结果 Array ( [name] => 张三 [age] => 18 [info] => Array ( [0] => 测试 [1] => 年龄 ) )
+
+    }
+
+    /**
+     * 交集和差集
+     * array_diff — 计算数组的差集
+     * array_intersect — 计算数组的交集
+     */
+    public function diff_intersect()
+    {
+        /**
+         * array_diff — 计算数组的差集
+         * array array_diff( array $array1, array $array2[, array $...] )
+         * 对比返回在 array1 中但是不在 array2 及任何其它参数数组中的值
+         * @param array1 要被对比的数组
+         * @param array2 和这个数组进行比较
+         *      ......
+         * 返回一个数组，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。注意键名保留不变。
+         */
+        // 两个数组做比较
+//        $array1 = ["a" => "green", "red", "blue", "red"];
+//        $array2 = ["b" => "green", "yellow", "red"];
+//        $result = array_diff($array1, $array2);
+//        print_r($result); // 结果 Array ( [1] => blue )
+        // 三个数组做比较
+//        $array1 = [1, 4, 5];
+//        $array2 = [1, 7];
+//        $array3 = [4, 9, 10];
+//        $result = array_diff($array1, $array2, $array3);
+//        print_r($result); // 结果 Array ( [2] => 5 )
+
+        /**
+         * array_intersect — 计算数组的交集
+         * array array_intersect( array $array1, array $array2[, array $ ...] )
+         * array_intersect() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意键名保留不变。
+         * @return array 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值
+         */
+//        $array1 = [1, 3, 5];
+//        $array2 = [2, 5, 8];
+//        $array3 = [3, 5, 10, 12];
+//        $result = array_intersect($array1, $array2, $array3);
+//        print_r($result); // 结果 Array ( [2] => 5 )
+
+    }
+
+    /**
+     * 指针
+     */
+    public function pointer_fun()
+    {
+        /**
+         * current — 返回数组中的当前单元
+         * mixed current( array &$array)
+         * 每个数组中都有一个内部的指针指向它"当前的"单元，初始指向插入到数组中的第一个单元
+         * @param array 这个数组
+         * current() 函数返回当前被内部指针指向的数组单元的值，并不移动指针。如果内部指针指向超出了单元列表的末端，current() 返回 FALSE
+         * 应使用 === 运算符来测试此函数的返回值
+         */
+//        $a = [1, 2, 3, 4, 5];
+//        $result = current($a);
+//        print_r($result); // 结果 1 当前指针在1，并不移动
+
+        /**
+         * pos-current的别名
+         */
+//        $a = [1, 2, 3, 4, 5];
+//        $result = pos($a);
+//        print_r($result); // 结果 1 当前指针在1，并不移动
+
+        /**
+         * key — 从关联数组中取得键名
+         * mixed key( array &$array)
+         * key() 返回数组中当前单元的键名。
+         * @param array
+         * @return mixed key() 函数返回数组中内部指针指向的当前单元的键名。但它不会移动指针。
+         * 如果内部指针超过了元素列表尾部，或者数组是空的，key() 会返回 NULL。
+         */
+//        $a = [1, 2, 3, 4, 5];
+//        $result = key($a);
+//        print_r($result); // 结果 0 当前指针在1，并不移动
+
+        /**
+         * next — 将数组中的内部指针向前移动一位
+         * mixed next( array &$array)
+         * next() 和 current() 的行为类似，只有一点区别，在返回值之前将内部指针向前移动一位。这意味着它返回的是下一个数组单元的值并将数组指针向前移动了一位
+         * 返回数组内部指针指向的下一个单元的值，或当没有更多单元时返回 FALSE。 应使用 === 运算符来测试此函数的返回值
+         */
+//        $a = [1, 2, 3, 4, 5];
+//        $result = next($a);
+//        print_r($result); // 结果 2
+        /**
+         * prev — 将数组的内部指针倒回一位
+         * mixed prev( array &$array)
+         * prev() 和 next() 的行为类似，只除了它将内部指针倒回一位而不是前移一位。
+         */
+//        $result = prev($a);
+//        print_r($result); // 结果 1
+
+        /**
+         * end — 将数组的内部指针指向最后一个单元
+         * mixed end( array &$array)
+         * end() 将 array 的内部指针移动到最后一个单元并返回其值
+         * @param array 这个数组。该数组是通过引用传递的，因为它会被这个函数修改。这意味着你必须传入一个真正的变量，而不是函数返回的数组，因为只有真正的变量才能以引用传递。
+         * @return mixed 返回最后一个元素的值，或者如果是空数组则返回 FALSE。
+         */
+//        $a = [1, 2, 3, 4, 5];
+//        $result = end($a);
+//        print_r($result); // 结果 5
+        /**
+         * reset — 将数组的内部指针指向第一个单元
+         * mixed reset( array &$array)
+         * reset() 将 array 的内部指针倒回到第一个单元并返回第一个数组单元的值。
+         * @return mixed 返回数组第一个单元的值，如果数组为空则返回 FALSE。
+         */
+//        $result = reset($a);
+//        print_r($result); // 结果 1
+
+        /**
+         * PHP从7.2开始已经删掉了each
+         * each — 返回数组中当前的键／值对并将数组指针向前移动一步
+         * array each( array &$array)
+         * 返回数组中当前的键／值对并将数组指针向前移动一步
+         * 在执行 each() 之后，数组指针将停留在数组中的下一个单元或者当碰到数组结尾时停留在最后一个单元。
+         * 如果要再用 each 遍历数组，必须使用 reset()。
+         * 返回 array 数组中当前指针位置的键／值对并向前移动数组指针。
+         * 键值对被返回为四个单元的数组，键名为0，1，key和 value。单元 0 和 key 包含有数组单元的键名，1 和 value 包含有数据。
+         * 如果内部指针越过了数组的末端，则 each() 返回 FALSE。
+         */
+
+
+        /**
+         * list — 把数组中的值赋给一些变量
+         * array list( mixed $varname[, mixed $...] )
+         * 像 array() 一样，这不是真正的函数，而是语言结构。list() 用一步操作给一组变量进行赋值。
+         * @return array 返回指定的数组。
+         */
+//        $a = [1, 2, 3];
+//        list($v1, $v2, $v3) = $a;
+//        print_r($v1); // 结果 1
+//        print_r($v2); // 结果 2
+//        print_r($v3); // 结果 3
+
+
+    }
 
 }
