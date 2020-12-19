@@ -20,7 +20,9 @@ class NewArray
     {
 //        $this->key_value();
 //        $this->array_var();
-        $this->frag_fit();
+//        $this->frag_fit();
+//        $this->push_pop();
+//        $this->shift_unshift();
 
     }
 
@@ -445,21 +447,85 @@ class NewArray
 
     /**
      * 栈
+     * array_push — 将一个或多个单元压入数组的末尾（入栈）-也就是从右侧压入
+     * array_pop — 将数组最后一个单元弹出（出栈）- 从右侧弹出
      */
     public function push_pop()
     {
         /**
-         * array_push — 将一个或多个单元压入数组的末尾（入栈）
+         * array_push — 将一个或多个单元压入数组的末尾（入栈）-也就是从右侧压入
          * int array_push( array &$array, mixed $var[, mixed $...] )
+         * 如果用 array_push() 来给数组增加一个单元，还不如用 $array[] =
          * array_push() 将 array 当成一个栈，并将传入的变量压入 array 的末尾。array 的长度将根据入栈变量的数目增加。和如下效果相同,并对每个 var 重复以上动作。
          *      $array[] = $var;
          *      Note: 如果用 array_push() 来给数组增加一个单元，还不如用 $array[] = ，因为这样没有调用函数的额外负担。
          *      Note: 如果第一个参数不是数组，array_push() 将发出一条警告。这和 $var[] 的行为不同，后者会新建一个数组。
          *
-         * array 输入的数组。
-         * var 要压入的值。
-         * 返回值: 返回处理之后数组的元素个数。
+         * @params array 输入的数组。
+         * @params var 要压入的值。
+         * @return int 返回处理之后数组的元素个数。
          */
+        $push_array = [1, 2, 3];
+        $result = array_push($push_array, 4, 5, 6);
+//        print_r($result); // 结果 6
+//        print_r($push_array); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 )
+
+        /**
+         * array_pop — 将数组最后一个单元弹出（出栈）- 从右侧弹出
+         * mixed array_pop( array &$array)
+         * array_pop() 弹出并返回 array 数组的最后一个单元，并将数组 array 的长度减一。如果 array 为空（或者不是数组）将返回 NULL。
+         *      Note: 使用此函数后会重置（reset()）array 指针。
+         * array 需要做出栈的数组。
+         * 返回值: 返回 array 的最后一个值。如果 array 是空（如果不是一个数组），将会返回 NULL
+         */
+        $pop_array = [];
+        $result = array_pop($pop_array); // 如果 array 为空（或者不是数组）将返回 NULL。
+//        print_r($result); // 结果 NULL
+//        print_r($pop_array); // 结果 Array ( )
+
+        $pop_array = [1, 2, 3];
+        $result = array_pop($pop_array);
+//        print_r($result); // 结果 3
+//        print_r($pop_array); // 结果 Array ( [0] => 1 [1] => 2 )
     }
+
+
+    /**
+     * 队列
+     * array_unshift — 在数组开头插入一个或多个单元
+     * array_shift — 将数组开头的单元移出数组
+     */
+    public function shift_unshift()
+    {
+        /**
+         * array_unshift — 在数组开头插入一个或多个单元
+         * int array_unshift( array &$array, mixed $var[, mixed $...] )
+         * array_unshift() 将传入的单元插入到 array 数组的开头。
+         * 注意单元是作为整体被插入的，因此传入单元将保持同样的顺序。
+         * 所有的数值键名将修改为从零开始重新计数，所有的文字键名保持不变。
+         * @params array 输入的数组
+         * @params var 开头插入的变量
+         * @return int 数组新的单元数目
+         */
+        $unshift_array = [1, 2, 3];
+        $result = array_unshift($unshift_array, 4, 5, 6);
+//        print_r($result); // 结果 6
+//        print_r($unshift_array); // 结果 Array ( [0] => 4 [1] => 5 [2] => 6 [3] => 1 [4] => 2 [5] => 3 )
+
+        /**
+         * array_shift — 将数组开头的单元移出数组
+         * mixed array_shift( array &$array)
+         * array_shift() 将 array 的第一个单元移出并作为结果返回，将 array 的长度减一并将所有其它单元向前移动一位。
+         * 所有的数字键名将改为从零开始计数，文字键名将不变。
+         * Note: 使用此函数后会重置（reset()）array 指针。
+         * @params array 输入的数组
+         * @return mixed 返回移出的值，如果 array 为 空或不是一个数组则返回 NULL
+         */
+        $shift_array = [4, 5, 6];
+        $result = array_shift($shift_array);
+//        print_r($result); // 结果 4
+//        print_r($shift_array); // 结果 Array ( [0] => 5 [1] => 6 )
+    }
+    
 
 }
