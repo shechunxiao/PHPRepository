@@ -23,11 +23,11 @@ class NewArray
 //        $this->frag_fit();
 //        $this->push_pop();
 //        $this->shift_unshift();
-//        $this->call_fun();
-//        $this->sort_fun();
+        $this->call_fun();
+        $this->sort_fun();
 //        $this->column_fun();
-//        $this->calculate_fun();
-//        $this->diff_intersect();
+        $this->calculate_fun();
+        $this->diff_intersect();
 //        $this->pointer_fun();
         $this->other();
     }
@@ -585,6 +585,29 @@ class NewArray
 //        print_r($walk_array);
 
         /**
+         * array_walk_recursive — 对数组中的每个成员递归地应用用户函数
+         * bool array_walk_recursive( array &$input, callable $funcname[, mixed $userdata = NULL] )
+         * 将用户自定义函数 funcname 应用到 array 数组中的每个单元。本函数会递归到更深层的数组中去
+         * input 输入的数组。
+         * funcname 典型情况下 funcname 接受两个参数。input 参数的值作为第一个，键名作为第二个。
+         * Note: 如果 funcname 需要直接作用于数组中的值，则给 funcname 的第一个参数指定为引用。这样任何对这些单元的改变也将会改变原始数组本身。
+         * userdata 如果提供了可选参数 userdata，将被作为第三个参数传递给 callback funcname。
+         * 成功时返回 TRUE， 或者在失败时返回 FALSE
+         */
+//        $fruits = ['sweet' => ['a' => 'apple', 'b' => 'banana'], 'sour' => 'lemon'];
+//        array_walk_recursive($fruits, function (&$value, $key) {
+//            $value = $value.'@';
+//            echo $value . '-' . $key.'</br>';
+//        });
+        // 结果
+        //apple-a
+        //banana-b
+        //lemon-sour
+//        print_r($fruits);
+        // 结果 Array ( [sweet] => Array ( [a] => apple@ [b] => banana@ ) [sour] => lemon@ )
+
+
+        /**
          * array_map — 将回调函数作用到给定数组的单元上
          * array array_map( callable $callback, array $arr1[, array $...] )
          * Note: map遍历的次数由后面数组中元素个数最大的决定
@@ -751,6 +774,9 @@ class NewArray
      * arsort — 对数组进行逆向排序并保持索引关系
      * ksort — 对数组按照键名排序
      * krsort — 对数组按照键名逆向排序
+     * usort — 使用用户自定义的比较函数对数组中的值进行排序
+     * uksort — 使用用户自定义的比较函数对数组中的键名进行排序
+     * uasort — 使用用户自定义的比较函数对数组中的值进行排序并保持索引关联
      * 特殊排序
      * natsort — 用"自然排序"算法对数组排序
      * natcasesort — 用"自然排序"算法对数组进行不区分大小写字母的排序
@@ -886,6 +912,110 @@ class NewArray
 //        $result = krsort($a);
 //        print_r($a); // 结果 Array ( [10] => 29 [6] => 56 [4] => 12 [3] => 54 [2] => 34 [1] => 90 )
 
+
+        /**
+         * 更多例子看手册
+         * usort — 使用用户自定义的比较函数对数组中的值进行排序
+         * bool usort( array &$array, callable $cmp_function)
+         * 本函数将用用户自定义的比较函数对一个数组中的值进行排序。如果要排序的数组需要用一种不寻常的标准进行排序，那么应该使用此函数。
+         * Note:如果两个成员比较结果相同，则它们在排序后的数组中的顺序未经定义。
+         * Note:此函数为 array 中的元素赋与新的键名。这将删除原有的键名，而不是仅仅将键名重新排序。
+         * array 输入的数组
+         * cmp_function 在第一个参数小于，等于或大于第二个参数时，该比较函数必须相应地返回一个小于，等于或大于 0 的整数。
+         * @return bool 成功时返回 TRUE， 或者在失败时返回 FALSE。
+         */
+//        $a = [3, 2, 5, 6, 1];
+//        $result = usort($a, function ($v1, $v2) {
+//            if ($v1 > $v2) {
+//                return 1;
+//            } else if ($v1 == $v2) {
+//                return 0;
+//            } else if ($v1 < $v2){
+//                return -1;
+//            }
+//        });
+//        print_r($a); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 5 [4] => 6 )
+        // 比较复杂的用法,这里实现了根据二维数组的某个列进行排序
+//        $array[0] = array('key_a' => 'z', 'key_b' => 'c');
+//        $array[1] = array('key_a' => 'x', 'key_b' => 'b');
+//        $array[2] = array('key_a' => 'y', 'key_b' => 'a');
+//
+//        function build_sorter($key)
+//        {
+//            return function ($a, $b) use ($key) {
+//                return strnatcmp($a[$key], $b[$key]);
+//            };
+//        }
+//
+//        usort($array, build_sorter('key_b'));
+//        print_r($array); // 结果 Array ( [0] => Array ( [key_a] => y [key_b] => a ) [1] => Array ( [key_a] => x [key_b] => b ) [2] => Array ( [key_a] => z [key_b] => c ) )
+//        foreach ($array as $item) {
+//            echo $item['key_a'] . ', ' . $item['key_b'] . "\n";
+//        }
+        // 结果 y, a x, b z, c
+
+        // 上面结果是回调函数，下面不用回调
+//        $array[0] = array('key_a' => 'z', 'key_b' => 'c');
+//        $array[1] = array('key_a' => 'x', 'key_b' => 'b');
+//        $array[2] = array('key_a' => 'y', 'key_b' => 'a');
+//        $key = 'key_b';
+//        usort($array, function ($a, $b) use ($key) {
+//            return strnatcmp($a[$key], $b[$key]);
+//        });
+//        print_r($array); // 结果 Array ( [0] => Array ( [key_a] => y [key_b] => a ) [1] => Array ( [key_a] => x [key_b] => b ) [2] => Array ( [key_a] => z [key_b] => c ) )
+
+        // 应用场景，有一个二维数组，需要根据name排序
+//        $array[] = ['id'=>2,'name'=>'张三'];
+//        $array[] = ['id'=>1,'name'=>'李四'];
+//        $array[] = ['id'=>3,'name'=>'麻子'];
+//        $array[] = ['id'=>5,'name'=>'王五'];
+//        $array[] = ['id'=>10,'name'=>'实物'];
+//        $key = 'id';
+//        usort($array, function ($a, $b) use ($key) {
+//            return strnatcmp($a[$key], $b[$key]);
+//        });
+//        print_r($array); // Array ( [0] => Array ( [id] => 1 [name] => 李四 ) [1] => Array ( [id] => 2 [name] => 张三 ) [2] => Array ( [id] => 3 [name] => 麻子 ) [3] => Array ( [id] => 5 [name] => 王五 ) [4] => Array ( [id] => 10 [name] => 实物 ) )
+
+        /**
+         * uksort — 使用用户自定义的比较函数对数组中的键名进行排序
+         * bool uksort( array &$array, callable $cmp_function)
+         * uksort() 函数将使用用户提供的比较函数对数组中的键名进行排序。如果要排序的数组需要用一种不寻常的标准进行排序，那么应该使用此函数。
+         * array 输入的数组。
+         * cmp_function 在第一个参数小于，等于或大于第二个参数时，该比较函数必须相应地返回一个小于，等于或大于 0 的整数。
+         *          int callback ( mixed $a, mixed $b )
+         * 成功时返回 TRUE， 或者在失败时返回 FALSE。
+         */
+
+//        $a = array("John" => 1, "the Earth" => 2, "an apple" => 3, "a banana" => 4);
+//
+//        uksort($a, function ($a, $b) {
+//            $a = preg_replace('@^(a|an|the) @', '', $a);
+//            $b = preg_replace('@^(a|an|the) @', '', $b);
+//            return strcasecmp($a, $b);
+//        });
+//
+//        foreach ($a as $key => $value) {
+//            echo "$key: $value\n";
+//        }
+        // 结果 an apple: 3 a banana: 4 the Earth: 2 John: 1
+
+        /**
+         * uasort — 使用用户自定义的比较函数对数组中的值进行排序并保持索引关联
+         * bool uasort( array &$array, callable $cmp_function)
+         * 本函数对数组排序并保持索引和单元之间的关联。
+         * 主要用于对那些单元顺序很重要的结合数组进行排序。比较函数是用户自定义的。
+         * array 输入的数组。
+         * cmp_function 用户自定义比较函数的例子请参考 usort() 和 uksort()。
+         */
+//        $array = array('a' => 4, 'b' => 8, 'c' => -1, 'd' => -9, 'e' => 2, 'f' => 5, 'g' => 3, 'h' => -4);
+//        uasort($array, function ($a, $b) {
+//            if ($a == $b) {
+//                return 0;
+//            }
+//            return ($a < $b) ? -1 : 1;
+//        });
+//        print_r($array);
+
         /**
          * natsort — 用"自然排序"算法对数组排序
          * natsort与asort的SORT_NATURAL有异曲同工之妙
@@ -963,6 +1093,8 @@ class NewArray
      * array_sum — 计算数组中所有值的和
      * array_merge — 合并一个或多个数组
      * array_merge_recursive — 递归地合并一个或多个数组
+     * array_count_values — 统计数组中所有的值出现的次数
+     * count — 计算数组中的单元数目或对象中的属性个数
      */
     public function calculate_fun()
     {
@@ -1021,6 +1153,45 @@ class NewArray
 //        $result = array_merge_recursive($a);
 //        print_r($result); // 结果 Array ( [name] => 张三 [age] => 18 [info] => Array ( [0] => 测试 [1] => 年龄 ) )
 
+        /**
+         * array_count_values — 统计数组中所有的值出现的次数
+         * array array_count_values( array $input)
+         * array_count_values() 返回一个数组，该数组用 input 数组中的值作为键名，该值在 input 数组中出现的次数作为值。
+         * input 统计这个数组的值
+         * 返回一个关联数组，用 input 数组中的值作为键名，该值在数组中出现的次数作为值
+         * 注意 对数组里面的每个不是 string 和 integer 类型的元素抛出一个警告错误（E_WARNING）。
+         * Warning: array_count_values(): Can only count STRING and INTEGER values!
+         */
+//        $array = array(1, "hello", 1, "world", "hello");
+//        $result = array_count_values($array);
+//        print_r($result); // 结果 Array ( [1] => 2 [hello] => 2 [world] => 1 )
+
+        /**
+         * sizeof-count的别名
+         * count — 计算数组中的单元数目或对象中的属性个数
+         * int count( mixed $var[, int $mode = COUNT_NORMAL] )
+         * 统计一个数组里的所有元素，或者一个对象里的东西。
+         * @param mixed var数组或者对象。
+         * @param int mode 如果可选的 mode 参数设为 COUNT_RECURSIVE（或 1），count() 将递归地对数组计数。
+         * 对计算多维数组的所有单元尤其有用。mode 的默认值是 0。count() 识别不了无限递归。
+         * @return int 返回var 中的单元数目。如果 var 不是数组类型或者实现了 Countable 接口的对象，将返回 1，有一个例外，如果 var 是 NULL 则结果是 0。
+         * count() 对没有初始化的变量返回 0，但对于空的数组也会返回 0。用 isset() 来测试变量是否已经初始化。
+         *
+         */
+        // 正常统计
+//        $a = [1, 2, 3, 4, 5, null];
+//        $result = count($a);
+//        print_r($result); // 结果 6
+
+        // 递归的统计
+//        $a = [
+//            'color' => ['red', 'green', 'blue'],
+//            'size' => ['大', '中', '小', 'arr' => [1, 2, 3]],
+//        ];
+//        $result = count($a, COUNT_RECURSIVE);
+//        print_r($result); // 结果 12 可以看出是包含每一层级的所有单元个数
+
+
     }
 
     /**
@@ -1052,6 +1223,18 @@ class NewArray
 //        print_r($result); // 结果 Array ( [2] => 5 )
 
         /**
+         * array_diff_assoc — 带索引检查计算数组的差集
+         * array array_diff_assoc( array $array1, array $array2[, array $...] )
+         * array_diff_assoc() 返回一个数组，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。注意和 array_diff() 不同的是键名也用于比较
+         * 键名也比较,注意这里不管是关联索引还是数字索引，都会比较
+         */
+//        $array1 = ["a" => "green", "b" => "brown", "c" => "blue", "red"];
+//        $array2 = ["a" => "green", "yellow", "red"];
+//        $result = array_diff_assoc($array1, $array2);
+//        print_r($result); // 结果 Array ( [b] => brown [c] => blue [0] => red )
+
+
+        /**
          * array_intersect — 计算数组的交集
          * array array_intersect( array $array1, array $array2[, array $ ...] )
          * array_intersect() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意键名保留不变。
@@ -1062,6 +1245,11 @@ class NewArray
 //        $array3 = [3, 5, 10, 12];
 //        $result = array_intersect($array1, $array2, $array3);
 //        print_r($result); // 结果 Array ( [2] => 5 )
+
+
+        /**
+         * array_intersect_key
+         */
 
     }
 
@@ -1246,6 +1434,75 @@ class NewArray
         // 取出多个
 //        $result = array_rand($a,2);
 //        print_r($result); // 结果，随机一个数组,如Array ( [0] => 2 [1] => 4 )
+
+        /**
+         * 合并数组有array_merge_recursive，array_merge，array_combine
+         * array_combine — 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值
+         * array array_combine( array $keys, array $values)
+         * 返回一个 array，用来自 keys 数组的值作为键名，来自 values 数组的值作为相应的值。
+         * keys 将被作为新数组的键。非法的值将会被转换为字符串类型（string）。
+         * values 将被作为数组的值。
+         * @return array 返回合并的 array，如果两个数组的单元数不同则返回 FALSE。
+         * 发出警告 Warning: array_combine(): Both parameters should have an equal number of elements
+         */
+//        $a = [1, 2, 3, 4, 5];
+//        $b = ['one', 'two', 'three', 'four', 'five'];
+//        $result = array_combine($a, $b);
+//        print_r($result); // 结果 Array ( [1] => one [2] => two [3] => three [4] => four [5] => five )
+
+        /**
+         * array_change_key_case — 返回字符串键名全为小写或大写的数组
+         * array array_change_key_case( array $input[, int $case = CASE_LOWER] )
+         * array_change_key_case() 将 input 数组中的所有键名改为全小写或大写。改变是根据后一个选项 case 参数来进行的。本函数不改变数字索引
+         * input 需要操作的数组。
+         * case 可以在这里用两个常量，CASE_UPPER 或 CASE_LOWER（默认值）。
+         * @return array 返回一个键全是小写或者全是大写的数组；如果输入值（input）不是一个数组，那么返回FALSE
+         */
+        // 对数字索引无效
+//        $a = [1, 2, 3, 4, 5];
+//        $result = array_change_key_case($a,CASE_UPPER);
+//        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 )
+        // 关联索引
+//        $a = ['one' => 1, 'two' => 2, 3, 4, 5];
+//        $result = array_change_key_case($a, CASE_UPPER);
+//        print_r($result); // 结果 Array ( [ONE] => 1 [TWO] => 2 [0] => 3 [1] => 4 [2] => 5 )
+
+        /**
+         * array_replace — 使用传递的数组替换第一个数组的元素
+         * array array_replace( array $array1, array $array2[, array $...] )
+         * array_replace() 函数使用后面数组元素相同 key 的值替换 array1 数组的值。如果一个键存在于第一个数组同时也存在于第二个数组，它的值将被第二个数组中的值替换。如果一个键存在于第二个数组，但是不存在于第一个数组，则会在第一个数组中创建这个元素。如果一个键仅存在于第一个数组，它将保持不变。如果传递了多个替换数组，它们将被按顺序依次处理，后面的数组将覆盖之前的值。
+         * array_replace() 是非递归的：它将第一个数组的值进行替换而不管第二个数组中是什么类型。
+         * array1 替换该数组的值。
+         * array2 从此数组中提取替换值。
+         * ...
+         * 包含要提取元素的更多数组。后面的数组里的值会覆盖前面的值。
+         * 返回一个数组。如果发生错误，将返回 NULL。
+         */
+//        $base = ["orange", "banana", "apple", "raspberry"];
+//        $replacements = [0 => "pineapple", 4 => "cherry"];
+//        $replacements2 = [0 => "grape"];
+//
+//        $basket = array_replace($base, $replacements, $replacements2);
+//        print_r($basket); // 结果 Array ( [0] => grape [1] => banana [2] => apple [3] => raspberry [4] => cherry )
+
+        /**
+         * array_replace_recursive — 使用传递的数组递归替换第一个数组的元素
+         * array array_replace_recursive( array $array1, array $array2[, array $...] )
+         * array_replace_recursive() 使用后面数组元素的值替换数组 array1 的值。如果一个键存在于第一个数组同时也存在于第二个数组，它的值将被第二个数组中的值替换。
+         * 如果一个键存在于第二个数组，但是不存在于第一个数组，则会在第一个数组中创建这个元素。如果一个键仅存在于第一个数组，它将保持不变。如果传递了多个替换数组，它们将被按顺序依次处理，后面的数组将覆盖之前的值。
+         * array_replace_recursive() 是递归的：它将遍历数组并将相同的处理应用到数组的内部值。
+         * 如果数组 array1 中的值是标量，它的值将被第二个数组 array2 中的值替换，它可能是一个标量或者数组。如果 array1 和 array2 中的值都是数组，array_replace_recursive() 函数将递归地替换它们各自的值。
+         * @param
+         * array1 替换该数组的值。
+         * array2 从此数组中提取替换值。
+         * ...
+         * 可选项。更多包含要提取元素的数组。
+         * 返回一个数组。如果发生错误，将返回 NULL
+         */
+//        $base = ['citrus' => ["orange"], 'berries' => ["blackberry", "raspberry"]];
+//        $replacements = ['citrus' => ['pineapple'], 'berries' => ['blueberry']];
+//        $basket = array_replace_recursive($base, $replacements);
+//        print_r($basket); // 结果 Array ( [citrus] => Array ( [0] => pineapple ) [berries] => Array ( [0] => blueberry [1] => raspberry ) )
 
     }
 
