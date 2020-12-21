@@ -18,18 +18,19 @@ class NewArray
 
     public function index()
     {
-//        $this->key_value();
-//        $this->array_var();
-//        $this->frag_fit();
-//        $this->push_pop();
-//        $this->shift_unshift();
-        $this->call_fun();
-        $this->sort_fun();
-//        $this->column_fun();
-        $this->calculate_fun();
+//        $this->key_value(); //7
+//        $this->array_var(); // 2
+//        $this->frag_fit(); // 7
+//        $this->push_pop(); // 2
+//        $this->shift_unshift(); // 2
+        $this->call_fun(); // 5
+        $this->sort_fun(); // 12
+//        $this->column_fun(); // 1
+        $this->calculate_fun(); // 6
         $this->diff_intersect();
-//        $this->pointer_fun();
-        $this->other();
+//        $this->pointer_fun(); // 8
+        $this->other(); // 8
+        // 除了交集和差集 一共60
     }
 
     /**
@@ -537,6 +538,7 @@ class NewArray
      * 回调函数(循环处理的函数)
      * @note 回调函数的调用方式，array_walk($this->crr, [$this,'方法名'],['one'=>2,'two'=>4]);
      * array_walk — 使用用户自定义函数对数组中的每个元素做回调处理
+     * array_walk_recursive — 对数组中的每个成员递归地应用用户函数
      * array_map — 将回调函数作用到给定数组的单元上
      * array_filter — 用回调函数过滤数组中的单元
      * array_reduce — 用回调函数迭代地将数组简化为单一的值
@@ -780,6 +782,8 @@ class NewArray
      * 特殊排序
      * natsort — 用"自然排序"算法对数组排序
      * natcasesort — 用"自然排序"算法对数组进行不区分大小写字母的排序
+     * 多个数组或多维数组进行排序
+     * array_multisort — 对多个数组或多维数组进行排序
      */
     public function sort_fun()
     {
@@ -1040,6 +1044,190 @@ class NewArray
 //        $result = natcasesort($a);
 //        print_r($a); // 结果 Array ( [0] => Orange1 [1] => orange2 [2] => Orange3 [3] => orange20 )
 
+        /**
+         * array_multisort — 对多个数组或多维数组进行排序
+         * bool array_multisort( array &$arr[, mixed $arg = SORT_ASC[, mixed $arg = SORT_REGULAR[, mixed $...]]] )
+         * array_multisort() 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。
+         * 关联（string）键名保持不变，但数字键名会被重新索引
+         *  排序顺序标志：
+         * ◦ SORT_ASC - 按照上升顺序排序
+         * ◦ SORT_DESC - 按照下降顺序排序
+         *
+         * 排序类型标志：
+         * ◦ SORT_REGULAR - 将项目按照通常方法比较
+         * ◦ SORT_NUMERIC - 将项目按照数值比较
+         * ◦ SORT_STRING - 将项目按照字符串比较
+         * 每个数组之后不能指定两个同类的排序标志。每个数组后指定的排序标志仅对该数组有效 - 在此之前为默认值 SORT_ASC 和 SORT_REGULAR。
+         * 输入数组被当成一个表的列并以行来排序——这类似于 SQL 的 ORDER BY 子句的功能。第一个数组是要排序的主要数组。数组中的行（值）比较为相同的话就按照下一个输入数组中相应值的大小来排序，依此类推。
+         * 本函数的参数结构有些不同寻常，但是非常灵活。第一个参数必须是一个数组。接下来的每个参数可以是数组或者是下面列出的排序标志。
+         * arr 要排序的一个 array。
+         * arg 接下来的每个参数可以是另一个 array 或者是为之前 array 排序标志选项参数： SORT_ASC, SORT_DESC, SORT_REGULAR, SORT_NUMERIC, SORT_STRING.
+         * ...
+         * Additional arg's.
+         * 成功时返回 TRUE， 或者在失败时返回 FALSE。
+         * 注意的是:每个数组的元素个数要一直，否则报错 Warning: array_multisort(): Array sizes are inconsistent
+         */
+
+        // 输入数组被当成一个表的列并以行来排序，意思是第一个数组的第一项，第二个数组的第一项,.....第n个数组的第一项，组成一个行记录，排序的时候是行之间的排序调整.第二行，第三行......依次类推。
+//        $ar1 = array(10, 100, 100, 0);
+//        $ar2 = array(1, 3, 2, 4);
+//        array_multisort($ar1, $ar2);
+//        print_r($ar1); // 结果 Array ( [0] => 0 [1] => 10 [2] => 100 [3] => 100 )
+//        print_r($ar2); // 结果 Array ( [0] => 4 [1] => 1 [2] => 2 [3] => 3 )
+
+        // 排序多维数组,当按第一个排序以后，如果第一个中有相同的元素值，那么相同元素值对应的元素，将会按照第二个数组指定的排序方式进行排序
+//        $ar = array(
+//            array("10", 11, 100, 100, "a", 'b','c'),
+//            array(1, 2, "2", 3, 1, 10,11)
+//        );
+//        array_multisort($ar[0], SORT_ASC, SORT_STRING, $ar[1], SORT_NUMERIC, SORT_DESC);
+//        print_r($ar); // 结果 Array ( [0] => Array ( [0] => 10 [1] => 100 [2] => 100 [3] => 11 [4] => a ) [1] => Array ( [0] => 1 [1] => 3 [2] => 2 [3] => 2 [4] => 1 ) )
+//        // 分析，本例中在排序后，第一个数组将变成 "10"，100，100，11，"a"（被当作字符串以升序排列）。第二个数组将包含 1, 3, "2", 2, 1（被当作数字以降序排列）。
+//        var_dump($ar);
+        // array(2) {
+        //  [0]=>
+        //  array(7) {
+        //    [0]=>
+        //    string(2) "10"
+        //    [1]=>
+        //    int(100)
+        //    [2]=>
+        //    int(100)
+        //    [3]=>
+        //    int(11)
+        //    [4]=>
+        //    string(1) "a"
+        //    [5]=>
+        //    string(1) "b"
+        //    [6]=>
+        //    string(1) "c"
+        //  }
+        //  [1]=>
+        //  array(7) {
+        //    [0]=>
+        //    int(1)
+        //    [1]=>
+        //    int(3)
+        //    [2]=>
+        //    string(1) "2"
+        //    [3]=>
+        //    int(2)
+        //    [4]=>
+        //    int(1)
+        //    [5]=>
+        //    int(10)
+        //    [6]=>
+        //    int(11)
+        //  }
+        //}
+
+        // 对数据库结果进行排序
+//        $data[] = array('volume' => 67, 'edition' => 2);
+//        $data[] = array('volume' => 86, 'edition' => 1);
+//        $data[] = array('volume' => 85, 'edition' => 6);
+//        $data[] = array('volume' => 98, 'edition' => 2);
+//        $data[] = array('volume' => 86, 'edition' => 6);
+//        $data[] = array('volume' => 67, 'edition' => 7);
+//
+//        // 取得列的列表
+//        $volume = [];
+//        $edition = [];
+//        foreach ($data as $key => $row) {
+//            $volume[$key] = $row['volume'];
+//            $edition[$key] = $row['edition'];
+//        }
+//
+//        // 将数据根据 volume 降序排列，根据 edition 升序排列
+//        // 把 $data 作为最后一个参数，以通用键排序
+//        array_multisort($volume, SORT_DESC, $edition, SORT_ASC, $data);
+//        print_r($data);
+        //Array
+        //(
+        //    [0] => Array
+        //        (
+        //            [volume] => 98
+        //            [edition] => 2
+        //        )
+        //
+        //    [1] => Array
+        //        (
+        //            [volume] => 86
+        //            [edition] => 1
+        //        )
+        //
+        //    [2] => Array
+        //        (
+        //            [volume] => 86
+        //            [edition] => 6
+        //        )
+        //
+        //    [3] => Array
+        //        (
+        //            [volume] => 85
+        //            [edition] => 6
+        //        )
+        //
+        //    [4] => Array
+        //        (
+        //            [volume] => 67
+        //            [edition] => 2
+        //        )
+        //
+        //    [5] => Array
+        //        (
+        //            [volume] => 67
+        //            [edition] => 7
+        //        )
+        //
+        //)
+
+        // 不区分大小写字母排序,SORT_STRING 和 SORT_REGULAR 都是区分大小写字母的，大写字母会排在小写字母之前
+        // 要进行不区分大小写的排序，就要按照原数组的小写字母拷贝来排序
+//        $array = array('Alpha', 'atomic', 'Beta', 'bank');
+//        $array_lowercase = array_map('strtolower', $array);
+//        print_r($array_lowercase); // Array ( [0] => alpha [1] => atomic [2] => beta [3] => bank )
+//        array_multisort($array_lowercase, SORT_ASC, SORT_STRING, $array);
+//        print_r($array); // 结果 Array ( [0] => Alpha [1] => atomic [2] => bank [3] => Beta )
+
+        // 具体排序的一个例子
+//        $grade = [
+//            "score" => [70, 95, 70.0, 60, "70"],
+//            "name" => ["Zhang San", "Li Si", "Wang Wu", "Zhao Liu", "Liu Qi"]
+//        ];
+//        array_multisort($grade["score"], SORT_NUMERIC, SORT_DESC,
+//            // 将分数作为数值，由高到低排序
+//            $grade["name"], SORT_STRING, SORT_ASC);
+//        // 将名字作为字符串，由小到大排序
+//        var_dump($grade);
+        // array(2) {
+        //  ["score"]=>
+        //  array(5) {
+        //    [0]=>
+        //    int(95)
+        //    [1]=>
+        //    string(2) "70"
+        //    [2]=>
+        //    float(70)
+        //    [3]=>
+        //    int(70)
+        //    [4]=>
+        //    int(60)
+        //  }
+        //  ["name"]=>
+        //  array(5) {
+        //    [0]=>
+        //    string(5) "Li Si"
+        //    [1]=>
+        //    string(6) "Liu Qi"
+        //    [2]=>
+        //    string(7) "Wang Wu"
+        //    [3]=>
+        //    string(9) "Zhang San"
+        //    [4]=>
+        //    string(8) "Zhao Liu"
+        //  }
+        //}
+
     }
 
     /**
@@ -1095,6 +1283,7 @@ class NewArray
      * array_merge_recursive — 递归地合并一个或多个数组
      * array_count_values — 统计数组中所有的值出现的次数
      * count — 计算数组中的单元数目或对象中的属性个数
+     * array_product — 计算数组中所有值的乘积
      */
     public function calculate_fun()
     {
@@ -1191,6 +1380,21 @@ class NewArray
 //        $result = count($a, COUNT_RECURSIVE);
 //        print_r($result); // 结果 12 可以看出是包含每一层级的所有单元个数
 
+        /**
+         * array_product — 计算数组中所有值的乘积
+         * number array_product( array $array)
+         * array_product() 以整数或浮点数返回一个数组中所有值的乘积。
+         * array 这个数组。
+         * @return number 以整数或浮点数返回一个数组中所有值的乘积。
+         */
+        // 整数
+//        $a = array(2, 4, 6, 8);
+//        $result = array_product($a);
+//        echo $result; // 结果 384
+        // 浮点数
+//        $a = [1.31, 1.25, 1.78];
+//        $result = array_product($a);
+//        echo $result; // 结果 2.91475
 
     }
 
@@ -1233,6 +1437,72 @@ class NewArray
 //        $result = array_diff_assoc($array1, $array2);
 //        print_r($result); // 结果 Array ( [b] => brown [c] => blue [0] => red )
 
+        /**
+         * array_diff_key — 使用键名比较计算数组的差集
+         * array array_diff_key( array $array1, array $array2[, array $...] )
+         * 根据 array1 中的键名和 array2 进行比较，返回不同键名的项。本函数和 array_diff() 相同只除了比较是根据键名而不是值来进行的。
+         * array_diff_key() 返回一个数组，该数组包括了所有出现在 array1 中但是未出现在任何其它参数数组中的键名的值
+         */
+//        $array1 = ['blue' => 1, 'red' => 2, 'green' => 3, 'purple' => 4];
+//        $array2 = ['green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan' => 8];
+//        $result = array_diff_key($array1, $array2);
+//        print_r($result); // Array ( [red] => 2 [purple] => 4 )
+
+        /**
+         * array_diff_uassoc — 用用户提供的回调函数做索引检查来计算数组的差集[没研究透]
+         * array array_diff_uassoc( array $array1, array $array2[, array $...], callable $key_compare_func)
+         * 对比了 array1 和 array2 并返回不同之处。注意和 array_diff() 不同的是键名也用于比较。
+         * 和 array_diff_assoc() 不同的是使用了用户自定义的回调函数，而不是内置的函数。
+         * array1 待比较的数组
+         * array2 和这个数组进行比较
+         * ...
+         * 更多比较的数组
+         * key_compare_func 在第一个参数小于，等于或大于第二个参数时，该比较函数必须相应地返回一个小于，等于或大于 0 的整数。
+         * int callback ( mixed $a, mixed $b )
+         * 返回一个 array，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。
+         * 参数 key_compare_func 是用户自定义的用来比较两个数组的函数，该函数必须带有两个参数 - 即两个要进行对比的键名。
+         * 因此与函数 array_diff_assoc() 的行为正好相反，后者是用内部函数进行比较的。
+         */
+//        $array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+//        $array2 = array("a" => "green", "yellow", "red");
+//        $result = array_diff_uassoc($array1, $array2, function ($a, $b) {
+//            if ($a === $b) {
+//                return 0;
+//            }
+//            return ($a > $b) ? 1 : -1;
+//        });
+//        print_r($result); // 结果 Array ( [b] => brown [c] => blue [0] => red )
+
+        /**
+         * array_diff_ukey — 用回调函数对键名比较计算数组的差集
+         * array array_diff_ukey( array $array1, array $array2[, array $ ...], callable $key_compare_func)
+         * array_diff_ukey() 返回一个数组，该数组包括了所有出现在 array1 中但是未出现在任何其它参数数组中的键名的值。注意关联关系保留不变。本函数和 array_diff() 相同只除了比较是根据键名而不是值来进行的。
+         * 此比较是通过用户提供的回调函数来进行的。如果认为第一个参数小于，等于，或大于第二个参数时必须分别返回一个小于零，等于零，或大于零的整数。
+         */
+//        $array1 = array('blue' => 1, 'red' => 2, 'green' => 3, 'purple' => 4);
+//        $array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan' => 8);
+//        $result = array_diff_ukey($array1, $array2, function ($key1, $key2) {
+//            if ($key1 == $key2)
+//                return 0;
+//            else if ($key1 > $key2)
+//                return 1;
+//            else
+//                return -1;
+//        });
+//        print_r($result); // 结果 Array ( [red] => 2 [purple] => 4 )
+
+        /**
+         * array_udiff_assoc
+         */
+
+
+
+
+
+
+
+
+
 
         /**
          * array_intersect — 计算数组的交集
@@ -1255,6 +1525,14 @@ class NewArray
 
     /**
      * 指针
+     * current — 返回数组中的当前单元
+     * pos-current的别名
+     * key — 从关联数组中取得键名
+     * next — 将数组中的内部指针向前移动一位
+     * prev — 将数组的内部指针倒回一位
+     * end — 将数组的内部指针指向最后一个单元
+     * reset — 将数组的内部指针指向第一个单元
+     * list — 把数组中的值赋给一些变量
      */
     public function pointer_fun()
     {
@@ -1356,6 +1634,13 @@ class NewArray
     /**
      * 其他常用的函数
      * array_unique — 移除数组中重复的值
+     * array_reverse — 返回一个单元顺序相反的数组
+     * shuffle — 将数组打乱
+     * array_rand — 从数组中随机取出一个或多个单元
+     * array_combine — 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值
+     * array_change_key_case — 返回字符串键名全为小写或大写的数组
+     * array_replace — 使用传递的数组替换第一个数组的元素
+     * array_replace_recursive — 使用传递的数组递归替换第一个数组的元素
      */
     public function other()
     {
