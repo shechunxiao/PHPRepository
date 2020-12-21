@@ -18,13 +18,13 @@ class NewArray
 
     public function index()
     {
-//        $this->key_value(); //7
+        $this->key_value(); //7
 //        $this->array_var(); // 2
 //        $this->frag_fit(); // 7
 //        $this->push_pop(); // 2
 //        $this->shift_unshift(); // 2
-        $this->call_fun(); // 5
-        $this->sort_fun(); // 12
+//        $this->call_fun(); // 5
+//        $this->sort_fun(); // 12
 //        $this->column_fun(); // 1
         $this->calculate_fun(); // 6
         $this->diff_intersect();
@@ -52,8 +52,10 @@ class NewArray
          * 返回值 如果var存在并且值不是 NULL 则返回 TRUE，否则返回 FALSE。
          * 需要注意的是一个 NULL 字节（"\0"）并不等同于 PHP 的 NULL 常数。
          */
-        $result = isset($this->key_value_array, $this->key_value_exist);
-//        var_dump($result); // 结果 bool(true)
+        $key_value_exist = [];
+        $key_value_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $result = isset($key_value_array, $key_value_exist);
+        var_dump($result); // 结果 bool(true)
         /**
          * in_array — 检查数组中是否存在某个值
          * bool in_array( mixed $needle, array $haystack[, bool $strict = FALSE] )
@@ -128,7 +130,7 @@ class NewArray
          * array_flip(): Can only flip STRING and INTEGER values!(仅仅可以交换integer 或者 string类型的)
          */
         $result = array_flip($this->key_value_array_assoc);
-        print_r($result);
+//        print_r($result);
     }
 
 
