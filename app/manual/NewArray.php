@@ -18,8 +18,8 @@ class NewArray
 
     public function index()
     {
-        $this->key_value(); //7
-//        $this->array_var(); // 2
+//        $this->key_value(); //7
+        $this->array_var(); // 2
 //        $this->frag_fit(); // 7
 //        $this->push_pop(); // 2
 //        $this->shift_unshift(); // 2
@@ -64,17 +64,18 @@ class NewArray
          * strict 如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。
          * 返回值 如果找到 needle 则返回 TRUE，否则返回 FALSE。
          */
-        $key_value_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        $result = in_array('1', $key_value_array);
-        var_dump($result); // 结果 bool(true)
-        $result = in_array('1', $key_value_array, true);
-        var_dump($result); // 结果 bool(false)
+//        $key_value_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//        $result = in_array('1', $key_value_array);
+//        var_dump($result); // 结果 bool(true)
+//        $result = in_array('1', $key_value_array, true);
+//        var_dump($result); // 结果 bool(false)
         /**
          * array_values — 返回数组中所有的值，并建立数字索引
          * array array_values( array $input)
          * 返回 input 数组中所有的值并给其建立数字索引。
          */
-        $result = array_values($this->key_value_array_assoc);
+        $key_value_array_assoc = ['name' => '张三', 'age' => 18, 'email' => 'google@qq.com', 'address' => '山东省济南市', 'number' => 1];
+        $result = array_values($key_value_array_assoc);
 //        print_r($result); // 结果 Array ( [0] => 张三 [1] => 18 [2] => google@qq.com [3] => 山东省济南市 [4] => 1 )
         /**
          * array_key_exists — 检查给定的键名或索引是否存在于数组中
@@ -83,7 +84,8 @@ class NewArray
          * search 一个数组，包含待检查的键
          * 返回值 在给定的 key 存在于数组中时返回 TRUE。key可以是任何能作为数组索引的值。array_key_exists()也可用于对象
          */
-        $result = array_key_exists('name', $this->key_value_array_assoc);
+//        $key_value_array_assoc = ['name' => '张三', 'age' => 18, 'email' => 'google@qq.com', 'address' => '山东省济南市', 'number' => 1];
+//        $result = array_key_exists('name', $key_value_array_assoc);
 //        var_dump($result); // 结果 bool(false)
         /**
          * array_keys — 返回数组中部分的或所有的键名
@@ -93,18 +95,20 @@ class NewArray
          * strict 判断在搜索的时候是否该使用严格的比较（===）。包括了值和类型检查
          * 返回 input 里的所有键组成的数组。
          */
-        $result = array_keys($this->key_value_array_assoc);
-//        var_dump($result); // 结果 array(5) { [0]=> string(4) "name" [1]=> string(3) "age" [2]=> string(5) "email" [3]=> string(7) "address" [4]=> string(6) "number" }
-        $result = array_keys($this->key_value_array_assoc, '张三');
-//        var_dump($result); // 结果 array(1) { [0]=> string(4) "name" }
-        $result = array_keys($this->key_value_array_assoc, '1');
-//        var_dump($result); // 结果 array(1) { [0]=> string(6) "number" }
-        $result = array_keys($this->key_value_array_assoc, '1', true);
-//        var_dump($result); // 结果 array(0) { }
-        $result = array_keys($this->key_value_array_assoc, '测试没有对应的key,这里可以作为判断用');
-//        var_dump($result); // 结果 array(0) { }
-        $result = array_keys($this->key_value_array, 2); // 数字数组
-//        var_dump($result); // 结果 array(1) { [0]=> int(1) }
+        $key_value_array_assoc = ['name' => '张三', 'age' => 18, 'email' => 'google@qq.com', 'address' => '山东省济南市', 'number' => 1];
+        $result = array_keys($key_value_array_assoc);
+//        print_r($result); // 结果 array(5) { [0]=> string(4) "name" [1]=> string(3) "age" [2]=> string(5) "email" [3]=> string(7) "address" [4]=> string(6) "number" }
+        $result = array_keys($key_value_array_assoc, '张三');
+//        print_r($result); // 结果 array(1) { [0]=> string(4) "name" }
+        $result = array_keys($key_value_array_assoc, '1');
+//        print_r($result); // 结果 array(1) { [0]=> string(6) "number" }
+        $result = array_keys($key_value_array_assoc, '1', true);
+//        print_r($result); // 结果 array(0) { }
+        $result = array_keys($key_value_array_assoc, '测试没有对应的key,这里可以作为判断用');
+//        print_r($result); // 结果 array(0) { }
+        $key_value_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $result = array_keys($key_value_array, 2); // 数字数组
+//        print_r($result); // 结果 array(1) { [0]=> int(1) }
         /**
          * array_search — 在数组中搜索给定的值，如果成功则返回相应的键名
          * mixed array_search( mixed $needle, array $haystack[, bool $strict = false] )
@@ -116,9 +120,10 @@ class NewArray
          *      如果 needle 在 haystack 中出现不止一次，则返回第一个匹配的键。要返回所有匹配值的键，应该用 array_keys() 加上可选参数 search_value 来代替。
          *      应使用 === false 运算符来测试此函数的返回值
          */
-        $result = array_search('张三', $this->key_value_array_assoc);
+        $key_value_array_assoc = ['name' => '张三', 'age' => 18, 'email' => 'google@qq.com', 'address' => '山东省济南市', 'number' => 1];
+        $result = array_search('张三', $key_value_array_assoc);
 //        var_dump($result); // 结果 string(4) "name"
-        $result = array_search('张三2', $this->key_value_array_assoc);
+//        $result = array_search('张三2', $key_value_array_assoc);
 //        var_dump($result); // 结果 bool(false)
 //        var_dump($result === false); // bool(true)
         /**
@@ -130,7 +135,8 @@ class NewArray
          * 如果同一个值出现了多次，则最后一个键名将作为它的值，所有其它的都丢失了。
          * array_flip(): Can only flip STRING and INTEGER values!(仅仅可以交换integer 或者 string类型的)
          */
-        $result = array_flip($this->key_value_array_assoc);
+        $key_value_array_assoc = ['name' => '张三', 'age' => 18, 'email' => 'google@qq.com', 'address' => '山东省济南市', 'number' => 1];
+        $result = array_flip($key_value_array_assoc);
 //        print_r($result);
     }
 
@@ -184,7 +190,7 @@ class NewArray
          */
         $name = '是否覆盖？'; // 测试覆盖的参数
 
-//        $extract_array = ['name' => '李四', 'age' => 18, 'email' => 'google@qq.com', 'sex' => 1, 'null' => 10];
+        $extract_array = ['name' => '李四', 'age' => 18, 'email' => 'google@qq.com', 'sex' => 1, 'null' => 10];
 //        $result = extract($extract_array); // 覆盖已有的变量
 //        echo $result.'</br>'; // 5
 //        echo $name.'</br>'; //李四
@@ -244,25 +250,25 @@ class NewArray
 //        echo $name.'</br>'; //是否覆盖？
 //        echo $pre_name.'</br>'; //李四
 
-//        $extract_array = ['name' => '李四', 'age' => 18, 'email' => 'google@qq.com', 'sex' => 1, 'null' => 10];
-//        /**
-//         * 添加了注释，phpstorm就会识别变量，也方便阅读
-//         * @var string $name
-//         * @var int $age
-//         * @var string $email
-//         * @var int $sex
-//         * @var int $null
-//         */
-//        $result = extract($extract_array,EXTR_REFS); // 将变量作为引用提取
-//        echo $result.'</br>'; // 5
-//        echo $name.'</br>'; //李四
-//        echo $age.'</br>'; //18
-//        echo $email.'</br>'; //google@qq.com
-//        echo $sex.'</br>'; //1
-//        echo $null.'</br>'; //10
-//        // 改变$email
-//        $email = 'baidu@qq.com';
-//        print_r($extract_array); // Array ( [name] => 李四 [age] => 18 [email] => baidu@qq.com [sex] => 1 [null] => 10 )
+        $extract_array = ['name' => '李四', 'age' => 18, 'email' => 'google@qq.com', 'sex' => 1, 'null' => 10];
+        /**
+         * 添加了注释，phpstorm就会识别变量，也方便阅读
+         * @var string $name
+         * @var int $age
+         * @var string $email
+         * @var int $sex
+         * @var int $null
+         */
+        $result = extract($extract_array,EXTR_REFS); // 将变量作为引用提取
+        echo $result.'</br>'; // 5
+        echo $name.'</br>'; //李四
+        echo $age.'</br>'; //18
+        echo $email.'</br>'; //google@qq.com
+        echo $sex.'</br>'; //1
+        echo $null.'</br>'; //10
+        // 改变$email
+        $email = 'baidu@qq.com';
+        print_r($extract_array); // Array ( [name] => 李四 [age] => 18 [email] => baidu@qq.com [sex] => 1 [null] => 10 )
 //        // 从上面看出，原来的数组中的email变量从google@qq.com变为了baidu@qq.com
 
     }
@@ -1261,20 +1267,20 @@ class NewArray
             ]
         ];
         // 不指定列，不指定$index_key,就是原数组
-//        $result = array_column($a,null);
+        $result = array_column($a,null);
 //        print_r($result);
 
         // 指定列,不指定$index_key
-//        $result = array_column($a, 'name');
+        $result = array_column($a, 'name');
 //        print_r($result); // 结果 Array ( [0] => first [1] => second )
 
         // 指定列，指定$index_key，如果$index_key不存在,则为索引数组
-//        $result = array_column($a, 'name', 'id');
+        $result = array_column($a, 'name', 'id');
 //        print_r($result); // 结果 Array ( [1] => first [2] => second )
 
         // 不指定列，指定$index_key
-//        $result = array_column($a, null, 'id');
-//        print_r($result); // 结果 Array ( [1] => Array ( [id] => 1 [name] => first ) [2] => Array ( [id] => 2 [name] => second ) )
+        $result = array_column($a, null, 'id');
+        print_r($result); // 结果 Array ( [1] => Array ( [id] => 1 [name] => first ) [2] => Array ( [id] => 2 [name] => second ) )
 
     }
 
