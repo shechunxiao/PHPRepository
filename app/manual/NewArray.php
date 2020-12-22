@@ -26,10 +26,10 @@ class NewArray
 //        $this->call_fun(); // 5
 //        $this->sort_fun(); // 12
 //        $this->column_fun(); // 1
-        $this->calculate_fun(); // 6
-        $this->diff_intersect();
+//        $this->calculate_fun(); // 6
+//        $this->diff_intersect();
 //        $this->pointer_fun(); // 8
-        $this->other(); // 8
+//        $this->other(); // 8
         // 除了交集和差集 一共60
     }
 
@@ -52,10 +52,10 @@ class NewArray
          * 返回值 如果var存在并且值不是 NULL 则返回 TRUE，否则返回 FALSE。
          * 需要注意的是一个 NULL 字节（"\0"）并不等同于 PHP 的 NULL 常数。
          */
-        $key_value_exist = [];
-        $key_value_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        $result = isset($key_value_array, $key_value_exist);
-        var_dump($result); // 结果 bool(true)
+//        $key_value_exist = [];
+//        $key_value_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//        $result = isset($key_value_array, $key_value_exist);
+//        var_dump($result); // 结果 bool(true)
         /**
          * in_array — 检查数组中是否存在某个值
          * bool in_array( mixed $needle, array $haystack[, bool $strict = FALSE] )
@@ -64,10 +64,11 @@ class NewArray
          * strict 如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。
          * 返回值 如果找到 needle 则返回 TRUE，否则返回 FALSE。
          */
-        $result = in_array('1', $this->key_value_array);
-//        var_dump($result); // 结果 bool(true)
-        $result = in_array('1', $this->key_value_array, true);
-//        var_dump($result); // 结果 bool(false)
+        $key_value_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $result = in_array('1', $key_value_array);
+        var_dump($result); // 结果 bool(true)
+        $result = in_array('1', $key_value_array, true);
+        var_dump($result); // 结果 bool(false)
         /**
          * array_values — 返回数组中所有的值，并建立数字索引
          * array array_values( array $input)
@@ -1496,14 +1497,6 @@ class NewArray
         /**
          * array_udiff_assoc
          */
-
-
-
-
-
-
-
-
 
 
         /**
