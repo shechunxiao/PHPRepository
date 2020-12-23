@@ -26,7 +26,7 @@ class NewArray
 //        $this->call_fun(); // 5
 //        $this->sort_fun(); // 12
 //        $this->column_fun(); // 1
-//        $this->calculate_fun(); // 6
+        $this->calculate_fun(); // 6
 //        $this->diff_intersect();
 //        $this->pointer_fun(); // 8
         $this->other(); // 8
@@ -381,9 +381,9 @@ class NewArray
 //        print_r($result); // 结果 Array ( )
 //        print_r($splice_array); // 结果 Array ( [0] => 颜色1 [1] => 红 [2] => 黄 [3] => 蓝 [4] => 绿 [5] => 青 [6] => 橙 [7] => 紫 )
 
-        $result = array_splice($splice_array, null, null, ['颜色1','颜色2']); //如果replacement是个数组，则将数组中的元素插入到offset位置
-        print_r($result); // 结果 Array ( )
-        print_r($splice_array); // 结果 Array ( [0] => 颜色1 [1] => 颜色2 [2] => 红 [3] => 黄 [4] => 蓝 [5] => 绿 [6] => 青 [7] => 橙 [8] => 紫 )
+//        $result = array_splice($splice_array, null, null, ['颜色1','颜色2']); //如果replacement是个数组，则将数组中的元素插入到offset位置
+//        print_r($result); // 结果 Array ( )
+//        print_r($splice_array); // 结果 Array ( [0] => 颜色1 [1] => 颜色2 [2] => 红 [3] => 黄 [4] => 蓝 [5] => 绿 [6] => 青 [7] => 橙 [8] => 紫 )
 
         /**
          * array_pad — 用值将数组填补到指定长度
@@ -400,13 +400,13 @@ class NewArray
          */
         $pad_array = [1, 2, 3, 4, 5];
 
-        $result = array_pad($pad_array, 4, '填'); // pad_size的绝对值 <= 原始数组的元素个数,则不填充
+//        $result = array_pad($pad_array, 4, '填'); // pad_size的绝对值 <= 原始数组的元素个数,则不填充
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 )
 
 //        $result = array_pad($pad_array,8,'填'); // pad_size为正数，则向右填充
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 填 [6] => 填 [7] => 填 )
 
-        $result = array_pad($pad_array, -8, '填'); // pad_size为负数，则向左填充
+//        $result = array_pad($pad_array, -8, '填'); // pad_size为负数，则向左填充
 //        print_r($result); // 结果 Array ( [0] => 填 [1] => 填 [2] => 填 [3] => 1 [4] => 2 [5] => 3 [6] => 4 [7] => 5 )
 
         // pad_value可以是string，数组，布尔等等几乎所有类型
@@ -424,7 +424,7 @@ class NewArray
 //        print_r($result); // 结果 Array ( [-2] => fill [0] => fill [1] => fill )
         $result = array_fill(4, 5, 'fill'); // 如果 start_index是正数，那么按正常索引排序
 //        print_r($result); // 结果 Array ( [4] => fill [5] => fill [6] => fill [7] => fill [8] => fill )
-        $result = array_fill(0, 10, 'fill'); // 正常用法
+//        $result = array_fill(0, 10, 'fill'); // 正常用法
 //        print_r($result); // 结果 Array ( [0] => fill [1] => fill [2] => fill [3] => fill [4] => fill [5] => fill [6] => fill [7] => fill [8] => fill [9] => fill )
 
         /**
@@ -455,9 +455,9 @@ class NewArray
          * value 填充使用的值。
          * 返回: 返回填充后的数组
          */
-        $keys = ['one', 'two', null, '', true];
-        $values = '充';
-        $result = array_fill_keys($keys, $values);
+//        $keys = ['one', 'two', null, '', true];
+//        $values = '充';
+//        $result = array_fill_keys($keys, $values);
 //        print_r($result); // 结果 Array ( [one] => 充 [two] => 充 [] => 充 [1] => 充 )  null,''是非法值都变为空，true转换成了1
 
     }
@@ -1347,10 +1347,14 @@ class NewArray
 //        $result = array_merge_recursive($a, $b);
 //        print_r($result); // 结果 Array ( [name] => Array ( [0] => 张三 [1] => 李四 ) [age] => Array ( [0] => 18 [1] => 25 ) [info] => Array ( [0] => 测试 [1] => 年龄 ) [address] => 山东 )
 
+//        $a = [1,2,3,4,5];
+//        $b = [7,8,9];
+//        $result = array_merge_recursive($a, $b);
+//        print_r($result);
         // 只有一个数组,不会重新索引数组
-//        $a = ['name' => '张三', 'age' => 18, 'info' => ['测试', '年龄']];
-//        $result = array_merge_recursive($a);
-//        print_r($result); // 结果 Array ( [name] => 张三 [age] => 18 [info] => Array ( [0] => 测试 [1] => 年龄 ) )
+        $a = ['name' => '张三', 'age' => 18, 'info' => ['测试', '年龄']];
+        $result = array_merge_recursive($a);
+        print_r($result); // 结果 Array ( [name] => 张三 [age] => 18 [info] => Array ( [0] => 测试 [1] => 年龄 ) )
 
         /**
          * array_count_values — 统计数组中所有的值出现的次数
