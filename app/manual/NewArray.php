@@ -21,7 +21,7 @@ class NewArray
 //        $this->key_value(); //7
 //        $this->array_var(); // 2
         $this->frag_fit(); // 7
-//        $this->push_pop(); // 2
+        $this->push_pop(); // 2
 //        $this->shift_unshift(); // 2
 //        $this->call_fun(); // 5
 //        $this->sort_fun(); // 12
@@ -482,8 +482,8 @@ class NewArray
          * @params var 要压入的值。
          * @return int 返回处理之后数组的元素个数。
          */
-        $push_array = [1, 2, 3];
-        $result = array_push($push_array, 4, 5, 6);
+//        $push_array = [1, 2, 3];
+//        $result = array_push($push_array, 4, 5, 6);
 //        print_r($result); // 结果 6
 //        print_r($push_array); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 )
 
@@ -495,15 +495,15 @@ class NewArray
          * array 需要做出栈的数组。
          * 返回值: 返回 array 的最后一个值。如果 array 是空（如果不是一个数组），将会返回 NULL
          */
-        $pop_array = [];
-        $result = array_pop($pop_array); // 如果 array 为空（或者不是数组）将返回 NULL。
-//        print_r($result); // 结果 NULL
+//        $pop_array = [];
+//        $result = array_pop($pop_array); // 如果 array 为空（或者不是数组）将返回 NULL。
+//        var_dump($result); // 结果 NULL
 //        print_r($pop_array); // 结果 Array ( )
 
         $pop_array = [1, 2, 3];
         $result = array_pop($pop_array);
-//        print_r($result); // 结果 3
-//        print_r($pop_array); // 结果 Array ( [0] => 1 [1] => 2 )
+        print_r($result); // 结果 3
+        print_r($pop_array); // 结果 Array ( [0] => 1 [1] => 2 )
     }
 
 
@@ -1354,7 +1354,7 @@ class NewArray
         // 只有一个数组,不会重新索引数组
         $a = ['name' => '张三', 'age' => 18, 'info' => ['测试', '年龄']];
         $result = array_merge_recursive($a);
-        print_r($result); // 结果 Array ( [name] => 张三 [age] => 18 [info] => Array ( [0] => 测试 [1] => 年龄 ) )
+//        print_r($result); // 结果 Array ( [name] => 张三 [age] => 18 [info] => Array ( [0] => 测试 [1] => 年龄 ) )
 
         /**
          * array_count_values — 统计数组中所有的值出现的次数
@@ -1671,7 +1671,8 @@ class NewArray
 //        print_r($result); // 结果 Array ( [a] => green [0] => red [1] => blue [3] => 1 )
 
         // SORT_NUMERIC - 以数字的形式比较
-//        $a = ["a" => "green", "red", "b" => "green", "blue", "red", 1, '1'];
+//        var_dump((double)('green'));
+//        $a = [ "red", "a" => "green","b" => "green", "blue", "red", 1, '1'];
 //        $result = array_unique($a, SORT_NUMERIC);
 //        print_r($result); // 结果 Array ( [a] => green [3] => 1 )
 
@@ -1772,7 +1773,6 @@ class NewArray
 //        $base = ["orange", "banana", "apple", "raspberry"];
 //        $replacements = [0 => "pineapple", 4 => "cherry"];
 //        $replacements2 = [0 => "grape"];
-//
 //        $basket = array_replace($base, $replacements, $replacements2);
 //        print_r($basket); // 结果 Array ( [0] => grape [1] => banana [2] => apple [3] => raspberry [4] => cherry )
 
