@@ -19,8 +19,8 @@ class NewArray
     public function index()
     {
 //        $this->key_value(); //7
-        $this->array_var(); // 2
-//        $this->frag_fit(); // 7
+//        $this->array_var(); // 2
+        $this->frag_fit(); // 7
 //        $this->push_pop(); // 2
 //        $this->shift_unshift(); // 2
 //        $this->call_fun(); // 5
@@ -29,7 +29,7 @@ class NewArray
 //        $this->calculate_fun(); // 6
 //        $this->diff_intersect();
 //        $this->pointer_fun(); // 8
-//        $this->other(); // 8
+        $this->other(); // 8
         // 除了交集和差集 一共60
     }
 
@@ -259,16 +259,16 @@ class NewArray
          * @var int $sex
          * @var int $null
          */
-        $result = extract($extract_array,EXTR_REFS); // 将变量作为引用提取
-        echo $result.'</br>'; // 5
-        echo $name.'</br>'; //李四
-        echo $age.'</br>'; //18
-        echo $email.'</br>'; //google@qq.com
-        echo $sex.'</br>'; //1
-        echo $null.'</br>'; //10
+//        $result = extract($extract_array,EXTR_REFS); // 将变量作为引用提取
+//        echo $result.'</br>'; // 5
+//        echo $name.'</br>'; //李四
+//        echo $age.'</br>'; //18
+//        echo $email.'</br>'; //google@qq.com
+//        echo $sex.'</br>'; //1
+//        echo $null.'</br>'; //10
         // 改变$email
         $email = 'baidu@qq.com';
-        print_r($extract_array); // Array ( [name] => 李四 [age] => 18 [email] => baidu@qq.com [sex] => 1 [null] => 10 )
+//        print_r($extract_array); // Array ( [name] => 李四 [age] => 18 [email] => baidu@qq.com [sex] => 1 [null] => 10 )
 //        // 从上面看出，原来的数组中的email变量从google@qq.com变为了baidu@qq.com
 
     }
@@ -296,10 +296,10 @@ class NewArray
          * 得到的数组是一个多维数组中的单元，其索引从零开始，每一维包含了 size 个元素。
          * 如果 size 小于 1，会抛出一个 E_WARNING 错误并返回 NULL。
          */
-        $chunk_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        $result = array_chunk($chunk_array, 3);
-//        print_r($result); // 结果 Array ( [0] => Array ( [0] => 1 [1] => 2 [2] => 3 ) [1] => Array ( [0] => 4 [1] => 5 [2] => 6 ) [2] => Array ( [0] => 7 [1] => 8 [2] => 9 ) [3] => Array ( [0] => 10 ) )
-        $result = array_chunk($chunk_array, 3, true); // 第三个参数，保持了原来的索引
+//        $chunk_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+////        $result = array_chunk($chunk_array, 3);
+////        print_r($result); // 结果 Array ( [0] => Array ( [0] => 1 [1] => 2 [2] => 3 ) [1] => Array ( [0] => 4 [1] => 5 [2] => 6 ) [2] => Array ( [0] => 7 [1] => 8 [2] => 9 ) [3] => Array ( [0] => 10 ) )
+//        $result = array_chunk($chunk_array, 3, true); // 第三个参数，保持了原来的索引
 //        print_r($result); // 结果 Array ( [0] => Array ( [0] => 1 [1] => 2 [2] => 3 ) [1] => Array ( [3] => 4 [4] => 5 [5] => 6 ) [2] => Array ( [6] => 7 [7] => 8 [8] => 9 ) [3] => Array ( [9] => 10 ) )
 
         /**
@@ -318,6 +318,7 @@ class NewArray
         $result = array_slice($slice_array, 0, -1);
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 [6] => 7 [7] => 8 [8] => 9 )  注意少了个10,说明length无论正负都是具体游标位置的绝对值
         $result = array_slice($slice_array, 0, null);
+        $result = array_slice($slice_array, 0);
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 [6] => 7 [7] => 8 [8] => 9 [9] => 10 ) 如果想截取到最后，不传或者传null即可
         $result = array_slice($slice_array, 4, 3);
 //        print_r($result); // 结果 Array ( [0] => 5 [1] => 6 [2] => 7 )
@@ -376,13 +377,13 @@ class NewArray
 //        print_r($splice_array); // 结果 Array ( [0] => 颜色 [1] => 蓝 [2] => 绿 [3] => 青 [4] => 橙 [5] => 紫 )
 
 //        $result = array_splice($splice_array, null, null, ['颜色1']); //如果用来替换 replacement 只有一个单元，那么不需要给它加上 array()
-//        $result = array_splice($splice_array, null, null, '颜色1'); //这两种方式结果是一样的
+////        $result = array_splice($splice_array, null, null, '颜色1'); //这两种方式结果是一样的
 //        print_r($result); // 结果 Array ( )
 //        print_r($splice_array); // 结果 Array ( [0] => 颜色1 [1] => 红 [2] => 黄 [3] => 蓝 [4] => 绿 [5] => 青 [6] => 橙 [7] => 紫 )
 
-//        $result = array_splice($splice_array, null, null, ['颜色1','颜色2']); //如果replacement是个数组，则将数组中的元素插入到offset位置
-//        print_r($result); // 结果 Array ( )
-//        print_r($splice_array); // 结果 Array ( [0] => 颜色1 [1] => 颜色2 [2] => 红 [3] => 黄 [4] => 蓝 [5] => 绿 [6] => 青 [7] => 橙 [8] => 紫 )
+        $result = array_splice($splice_array, null, null, ['颜色1','颜色2']); //如果replacement是个数组，则将数组中的元素插入到offset位置
+        print_r($result); // 结果 Array ( )
+        print_r($splice_array); // 结果 Array ( [0] => 颜色1 [1] => 颜色2 [2] => 红 [3] => 黄 [4] => 蓝 [5] => 绿 [6] => 青 [7] => 橙 [8] => 紫 )
 
         /**
          * array_pad — 用值将数组填补到指定长度
@@ -1690,7 +1691,7 @@ class NewArray
 //        $result = array_reverse($a);
 //        print_r($result); // 结果 Array ( [0] => 5 [1] => 4 [2] => 李四 [3] => 3 [4] => 张三 [5] => 2 [6] => 1 )
 
-        // 设置第二个参数,保留key
+//         设置第二个参数,保留key
 //        $a = [1, 2, '张三', 3, '李四', 4, 5];
 //        $result = array_reverse($a,true);
 //        print_r($result); // 结果 Array ( [6] => 5 [5] => 4 [4] => 李四 [3] => 3 [2] => 张三 [1] => 2 [0] => 1 )
@@ -1744,11 +1745,11 @@ class NewArray
          * case 可以在这里用两个常量，CASE_UPPER 或 CASE_LOWER（默认值）。
          * @return array 返回一个键全是小写或者全是大写的数组；如果输入值（input）不是一个数组，那么返回FALSE
          */
-        // 对数字索引无效
+//        // 对数字索引无效
 //        $a = [1, 2, 3, 4, 5];
 //        $result = array_change_key_case($a,CASE_UPPER);
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 )
-        // 关联索引
+//         关联索引
 //        $a = ['one' => 1, 'two' => 2, 3, 4, 5];
 //        $result = array_change_key_case($a, CASE_UPPER);
 //        print_r($result); // 结果 Array ( [ONE] => 1 [TWO] => 2 [0] => 3 [1] => 4 [2] => 5 )
