@@ -22,8 +22,8 @@ class NewArray
 //        $this->array_var(); // 2
         $this->frag_fit(); // 7
         $this->push_pop(); // 2
-//        $this->shift_unshift(); // 2
-//        $this->call_fun(); // 5
+        $this->shift_unshift(); // 2
+        $this->call_fun(); // 5
 //        $this->sort_fun(); // 12
 //        $this->column_fun(); // 1
         $this->calculate_fun(); // 6
@@ -502,8 +502,8 @@ class NewArray
 
         $pop_array = [1, 2, 3];
         $result = array_pop($pop_array);
-        print_r($result); // 结果 3
-        print_r($pop_array); // 结果 Array ( [0] => 1 [1] => 2 )
+//        print_r($result); // 结果 3
+//        print_r($pop_array); // 结果 Array ( [0] => 1 [1] => 2 )
     }
 
 
@@ -524,8 +524,8 @@ class NewArray
          * @params var 开头插入的变量
          * @return int 数组新的单元数目
          */
-        $unshift_array = [1, 2, 3];
-        $result = array_unshift($unshift_array, 4, 5, 6);
+//        $unshift_array = [1, 2, 3];
+//        $result = array_unshift($unshift_array, 4, 5, 6);
 //        print_r($result); // 结果 6
 //        print_r($unshift_array); // 结果 Array ( [0] => 4 [1] => 5 [2] => 6 [3] => 1 [4] => 2 [5] => 3 )
 
@@ -538,8 +538,8 @@ class NewArray
          * @params array 输入的数组
          * @return mixed 返回移出的值，如果 array 为 空或不是一个数组则返回 NULL
          */
-        $shift_array = [4, 5, 6];
-        $result = array_shift($shift_array);
+//        $shift_array = [4, 5, 6];
+//        $result = array_shift($shift_array);
 //        print_r($result); // 结果 4
 //        print_r($shift_array); // 结果 Array ( [0] => 5 [1] => 6 )
     }
@@ -567,25 +567,25 @@ class NewArray
          * @params userdata 如果提供了可选参数 userdata，将被作为第三个参数传递给 callback funcname。
          * @return bool 成功时返回 TRUE， 或者在失败时返回 FALSE
          */
-        $walk_array = [
-            ['name' => '张三', 'phone' => '123456789'],
-            ['name' => '李四', 'phone' => '123456789'],
-            ['name' => '王二', 'phone' => '123456789'],
-        ];
-        $param1 = '参数1';
-        $param2 = '参数2';
-
-        // 对每一个元素做回调处理，传值有两种方式，一种是使用use,另外一种是传递第三个参数，function中用第三个参数接收
-        // 如果想修改数组原来本身，则加&引用即可
-
-        // 方式一
+//        $walk_array = [
+//            ['name' => '张三', 'phone' => '123456789'],
+//            ['name' => '李四', 'phone' => '123456789'],
+//            ['name' => '王二', 'phone' => '123456789'],
+//        ];
+//        $param1 = '参数1';
+//        $param2 = '参数2';
+//
+//        // 对每一个元素做回调处理，传值有两种方式，一种是使用use,另外一种是传递第三个参数，function中用第三个参数接收
+//        // 如果想修改数组原来本身，则加&引用即可
+//
+//        // 方式一
 //        $result = array_walk($walk_array, function (&$value, $index, $params) {
 //
 //            $value['name'] = $params['param1'] . '-' . $value['name'] . '-' . $params['param2'];
 //
 //        }, ['param1' => $param1, 'param2' => $param2]);
-
-        // 方式二
+//
+//        // 方式二
 //        $params = ['param1' => $param1, 'param2' => $param2];
 //        $result = array_walk($walk_array, function (&$value, $index) use ($params) {
 //
@@ -611,10 +611,10 @@ class NewArray
 //            $value = $value.'@';
 //            echo $value . '-' . $key.'</br>';
 //        });
-        // 结果
-        //apple-a
-        //banana-b
-        //lemon-sour
+////         结果
+////        apple-a
+////        banana-b
+////        lemon-sour
 //        print_r($fruits);
         // 结果 Array ( [sweet] => Array ( [a] => apple@ [b] => banana@ ) [sour] => lemon@ )
 
@@ -638,7 +638,7 @@ class NewArray
 //        }, $a);
 //        print_r($result); // 结果 Array ( [0] => 1 [1] => 8 [2] => 27 [3] => 64 [4] => 125 )
 
-        // 使用两个数组,返回的元素个数，由最大的数组元素决定
+//        // 使用两个数组,返回的元素个数，由最大的数组元素决定
         $a = [1, 2, 3, 4, 5];
         $b = ['红', '橙', '黄', '绿', '青', '蓝', '紫色'];
 //        $result = array_map(function ($v1, $v2) {
@@ -651,7 +651,7 @@ class NewArray
 //        }, $a, $b);
 //        print_r($result); // 结果 Array ( [0] => Array ( [1] => 红 ) [1] => Array ( [2] => 橙 ) [2] => Array ( [3] => 黄 ) [3] => Array ( [4] => 绿 ) [4] => Array ( [5] => 青 ) [5] => Array ( [] => 蓝 ) [6] => Array ( [] => 紫色 ) )
 
-        // 通过array_map实现构造数组，将多个数组合并为一个数组,回调函数为null
+////         通过array_map实现构造数组，将多个数组合并为一个数组,回调函数为null
 //        $a = [1, 2, 3, 4, 5];
 //        $b = ['one', 'two', 'three', 'four', 'five'];
 //        $c = ['一', '二', '三', '四', '五'];
@@ -697,14 +697,14 @@ class NewArray
          * ◦ ARRAY_FILTER_USE_BOTH - callback同时接受键名和键值
          * @return array 返回过滤后的数组
          */
-        // 输出都为奇数的
+//        // 输出都为奇数的
 //        $filter_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //        $result = array_filter($filter_array,function($value,$index){
 //            return ($value & 1);
 //        },ARRAY_FILTER_USE_BOTH);
 //        print_r($result);
 
-        // 输出都为偶数的
+//        // 输出都为偶数的
 //        $filter_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //        $result = array_filter($filter_array,function($value,$index){
 //            return !($value & 1);
@@ -726,14 +726,14 @@ class NewArray
          * @return mixed initial 参数，array_reduce() 返回 NULL。
          */
 
-        // 如果指定了可选参数 initial，该参数将被当成是数组中的第一个值来处理，或者如果数组为空的话就作为最终返回值
+//        // 如果指定了可选参数 initial，该参数将被当成是数组中的第一个值来处理，或者如果数组为空的话就作为最终返回值
 //        $reduce_array = [];
 //        $result = array_reduce($reduce_array, function () {
 //            return;
 //        }, '初始值');
 //        print_r($result); // 结果 初始值
 
-        // 指定initial,并且use使用参数
+////         指定initial,并且use使用参数
 //        $reduce_array = ['one', 'two'];
 //        $str = '/';
 //        $result = array_reduce($reduce_array, function ($v1, $v2) use ($str) {
