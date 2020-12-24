@@ -28,7 +28,7 @@ class NewArray
 //        $this->column_fun(); // 1
         $this->calculate_fun(); // 6
 //        $this->diff_intersect();
-//        $this->pointer_fun(); // 8
+        $this->pointer_fun(); // 8
         $this->other(); // 8
         // 除了交集和差集 一共60
     }
@@ -979,16 +979,16 @@ class NewArray
 //        print_r($array); // 结果 Array ( [0] => Array ( [key_a] => y [key_b] => a ) [1] => Array ( [key_a] => x [key_b] => b ) [2] => Array ( [key_a] => z [key_b] => c ) )
 
 //         应用场景，有一个二维数组，需要根据name排序
-        $array[] = ['id'=>2,'name'=>'张三'];
-        $array[] = ['id'=>1,'name'=>'李四'];
-        $array[] = ['id'=>3,'name'=>'麻子'];
-        $array[] = ['id'=>5,'name'=>'王五'];
-        $array[] = ['id'=>10,'name'=>'实物'];
-        $key = 'id';
-        usort($array, function ($a, $b) use ($key) {
-            return strnatcmp($a[$key], $b[$key]);
-        });
-        print_r($array); // Array ( [0] => Array ( [id] => 1 [name] => 李四 ) [1] => Array ( [id] => 2 [name] => 张三 ) [2] => Array ( [id] => 3 [name] => 麻子 ) [3] => Array ( [id] => 5 [name] => 王五 ) [4] => Array ( [id] => 10 [name] => 实物 ) )
+//        $array[] = ['id'=>2,'name'=>'张三'];
+//        $array[] = ['id'=>1,'name'=>'李四'];
+//        $array[] = ['id'=>3,'name'=>'麻子'];
+//        $array[] = ['id'=>5,'name'=>'王五'];
+//        $array[] = ['id'=>10,'name'=>'实物'];
+//        $key = 'id';
+//        usort($array, function ($a, $b) use ($key) {
+//            return strnatcmp($a[$key], $b[$key]);
+//        });
+//        print_r($array); // Array ( [0] => Array ( [id] => 1 [name] => 李四 ) [1] => Array ( [id] => 2 [name] => 张三 ) [2] => Array ( [id] => 3 [name] => 麻子 ) [3] => Array ( [id] => 5 [name] => 王五 ) [4] => Array ( [id] => 10 [name] => 实物 ) )
 
         /**
          * uksort — 使用用户自定义的比较函数对数组中的键名进行排序
@@ -1001,13 +1001,11 @@ class NewArray
          */
 
 //        $a = array("John" => 1, "the Earth" => 2, "an apple" => 3, "a banana" => 4);
-//
 //        uksort($a, function ($a, $b) {
 //            $a = preg_replace('@^(a|an|the) @', '', $a);
 //            $b = preg_replace('@^(a|an|the) @', '', $b);
 //            return strcasecmp($a, $b);
 //        });
-//
 //        foreach ($a as $key => $value) {
 //            echo "$key: $value\n";
 //        }
@@ -1091,8 +1089,8 @@ class NewArray
 //            array(1, 2, "2", 3, 1, 10,11)
 //        );
 //        array_multisort($ar[0], SORT_ASC, SORT_STRING, $ar[1], SORT_NUMERIC, SORT_DESC);
-//        print_r($ar); // 结果 Array ( [0] => Array ( [0] => 10 [1] => 100 [2] => 100 [3] => 11 [4] => a ) [1] => Array ( [0] => 1 [1] => 3 [2] => 2 [3] => 2 [4] => 1 ) )
-//        // 分析，本例中在排序后，第一个数组将变成 "10"，100，100，11，"a"（被当作字符串以升序排列）。第二个数组将包含 1, 3, "2", 2, 1（被当作数字以降序排列）。
+//        var_dump($ar); // 结果 Array ( [0] => Array ( [0] => 10 [1] => 100 [2] => 100 [3] => 11 [4] => a ) [1] => Array ( [0] => 1 [1] => 3 [2] => 2 [3] => 2 [4] => 1 ) )
+        // 分析，本例中在排序后，第一个数组将变成 "10"，100，100，11，"a"（被当作字符串以升序排列）。第二个数组将包含 1, 3, "2", 2, 1（被当作数字以降序排列）。
 //        var_dump($ar);
         // array(2) {
         //  [0]=>
@@ -1131,7 +1129,7 @@ class NewArray
         //  }
         //}
 
-        // 对数据库结果进行排序
+//        // 对数据库结果进行排序
 //        $data[] = array('volume' => 67, 'edition' => 2);
 //        $data[] = array('volume' => 86, 'edition' => 1);
 //        $data[] = array('volume' => 85, 'edition' => 6);
@@ -1199,13 +1197,12 @@ class NewArray
 //        array_multisort($array_lowercase, SORT_ASC, SORT_STRING, $array);
 //        print_r($array); // 结果 Array ( [0] => Alpha [1] => atomic [2] => bank [3] => Beta )
 
-        // 具体排序的一个例子
+//        // 具体排序的一个例子
 //        $grade = [
 //            "score" => [70, 95, 70.0, 60, "70"],
 //            "name" => ["Zhang San", "Li Si", "Wang Wu", "Zhao Liu", "Liu Qi"]
 //        ];
-//        array_multisort($grade["score"], SORT_NUMERIC, SORT_DESC,
-//            // 将分数作为数值，由高到低排序
+//        array_multisort($grade["score"], SORT_NUMERIC, SORT_DESC, // 将分数作为数值，由高到低排序
 //            $grade["name"], SORT_STRING, SORT_ASC);
 //        // 将名字作为字符串，由小到大排序
 //        var_dump($grade);
@@ -1309,7 +1306,7 @@ class NewArray
 //        $result = array_sum($a);
 //        print_r($result); // 结果 15
 
-        // 浮点数
+//        // 浮点数
 //        $a = [1.25, 2.14, 3.12, 4.87, 5.34];
 //        $result = array_sum($a);
 //        print_r($result); // 结果 16.72
@@ -1381,12 +1378,12 @@ class NewArray
          * count() 对没有初始化的变量返回 0，但对于空的数组也会返回 0。用 isset() 来测试变量是否已经初始化。
          *
          */
-        // 正常统计
+//        // 正常统计
 //        $a = [1, 2, 3, 4, 5, null];
 //        $result = count($a);
 //        print_r($result); // 结果 6
 
-        // 递归的统计
+//        // 递归的统计
 //        $a = [
 //            'color' => ['red', 'green', 'blue'],
 //            'size' => ['大', '中', '小', 'arr' => [1, 2, 3]],
@@ -1401,7 +1398,7 @@ class NewArray
          * array 这个数组。
          * @return number 以整数或浮点数返回一个数组中所有值的乘积。
          */
-        // 整数
+//        // 整数
 //        $a = array(2, 4, 6, 8);
 //        $result = array_product($a);
 //        echo $result; // 结果 384
@@ -1587,8 +1584,9 @@ class NewArray
          * mixed prev( array &$array)
          * prev() 和 next() 的行为类似，只除了它将内部指针倒回一位而不是前移一位。
          */
+//        $a = [1, 2, 3, 4, 5];
 //        $result = prev($a);
-//        print_r($result); // 结果 1
+//        var_dump($result); // 结果 1
 
         /**
          * end — 将数组的内部指针指向最后一个单元
@@ -1606,6 +1604,7 @@ class NewArray
          * reset() 将 array 的内部指针倒回到第一个单元并返回第一个数组单元的值。
          * @return mixed 返回数组第一个单元的值，如果数组为空则返回 FALSE。
          */
+//        $a = [1, 2, 3, 4, 5];
 //        $result = reset($a);
 //        print_r($result); // 结果 1
 
