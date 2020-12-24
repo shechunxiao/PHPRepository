@@ -24,7 +24,7 @@ class NewArray
         $this->push_pop(); // 2
         $this->shift_unshift(); // 2
         $this->call_fun(); // 5
-//        $this->sort_fun(); // 12
+        $this->sort_fun(); // 12
 //        $this->column_fun(); // 1
         $this->calculate_fun(); // 6
 //        $this->diff_intersect();
@@ -821,7 +821,7 @@ class NewArray
         // SORT_FLAG_CASE 与 SORT_STRING 或 SORT_NATURAL 联合使用,不区分大小写排序字符串
 
 
-        // SORT_REGULAR 默认的正常排序-纯数字
+////         SORT_REGULAR 默认的正常排序-纯数字
 //        $a = [12, 34, 56, 29, 90, 54];
 //        $result = sort($a);
 //        print_r($a); // 结果 Array ( [0] => 12 [1] => 29 [2] => 34 [3] => 54 [4] => 56 [5] => 90 )
@@ -842,22 +842,22 @@ class NewArray
 //        $result = sort($a); // 结果 Array ( [0] => 什么 [1] => 可以 [2] => 很好 [3] => 情况 [4] => 测试 [5] => 非常牛 )
 //        print_r($a);
 
-        // SORT_NUMERIC 按照数字来比较-数字/数字字符
+//        // SORT_NUMERIC 按照数字来比较-数字/数字字符
 //        $a = [1, '1', 2, '21', 89, '76', true, false, null];
 //        $result = sort($a, SORT_NUMERIC);
 //        print_r($a); // 结果 Array ( [0] => [1] => [2] => 1 [3] => 1 [4] => 1 [5] => 2 [6] => 21 [7] => 76 [8] => 89 )
 
-        // SORT_STRING 按照字符串来比较-字符串
+//        // SORT_STRING 按照字符串来比较-字符串
 //        $a = ['1', 10, '99', '76', '102', 38, '45'];
 //        $result = sort($a,SORT_STRING);
 //        print_r($a); // 结果 Array ( [0] => 1 [1] => 10 [2] => 102 [3] => 38 [4] => 45 [5] => 76 [6] => 99 )
 
-        // SORT_LOCALE_STRING 根据当前的区域（locale）设置来把单元当作字符串比较，可以用 setlocale() 来改变
+////         SORT_LOCALE_STRING 根据当前的区域（locale）设置来把单元当作字符串比较，可以用 setlocale() 来改变
 //        $a = ['20', '201', 1, '5', 6];
 //        $result = sort($a, SORT_LOCALE_STRING);
 //        print_r($a); // 结果 Array ( [0] => 1 [1] => 20 [2] => 201 [3] => 5 [4] => 6 )
 
-        // SORT_NATURAL 对每个单元以"自然的顺序"对字符串进行排序
+//        // SORT_NATURAL 对每个单元以"自然的顺序"对字符串进行排序
 //        $a = ["Orange1", "orange2", "Orange3", "orange20"];
 //        $result = sort($a, SORT_NATURAL);
 //        print_r($a); // 结果 Array ( [0] => Orange1 [1] => Orange3 [2] => orange2 [3] => orange20 )
@@ -876,7 +876,7 @@ class NewArray
          */
 //        $a = [12, 34, 56, 29, 90, 54];
 //        $result = rsort($a);
-//        print_r($a); // 结果 Array ( [0] => 90 [1] => 56 [2] => 54 [3] => 34 [4] => 29 [5] => 12 )
+//        print_r($a); // 结果 Array ( [0] =rsort> 90 [1] => 56 [2] => 54 [3] => 34 [4] => 29 [5] => 12 )
 
         /**
          * asort — 对数组进行排序并保持索引关系
@@ -949,7 +949,7 @@ class NewArray
 //            }
 //        });
 //        print_r($a); // 结果 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 5 [4] => 6 )
-        // 比较复杂的用法,这里实现了根据二维数组的某个列进行排序
+//        // 比较复杂的用法,这里实现了根据二维数组的某个列进行排序
 //        $array[0] = array('key_a' => 'z', 'key_b' => 'c');
 //        $array[1] = array('key_a' => 'x', 'key_b' => 'b');
 //        $array[2] = array('key_a' => 'y', 'key_b' => 'a');
@@ -978,17 +978,17 @@ class NewArray
 //        });
 //        print_r($array); // 结果 Array ( [0] => Array ( [key_a] => y [key_b] => a ) [1] => Array ( [key_a] => x [key_b] => b ) [2] => Array ( [key_a] => z [key_b] => c ) )
 
-        // 应用场景，有一个二维数组，需要根据name排序
-//        $array[] = ['id'=>2,'name'=>'张三'];
-//        $array[] = ['id'=>1,'name'=>'李四'];
-//        $array[] = ['id'=>3,'name'=>'麻子'];
-//        $array[] = ['id'=>5,'name'=>'王五'];
-//        $array[] = ['id'=>10,'name'=>'实物'];
-//        $key = 'id';
-//        usort($array, function ($a, $b) use ($key) {
-//            return strnatcmp($a[$key], $b[$key]);
-//        });
-//        print_r($array); // Array ( [0] => Array ( [id] => 1 [name] => 李四 ) [1] => Array ( [id] => 2 [name] => 张三 ) [2] => Array ( [id] => 3 [name] => 麻子 ) [3] => Array ( [id] => 5 [name] => 王五 ) [4] => Array ( [id] => 10 [name] => 实物 ) )
+//         应用场景，有一个二维数组，需要根据name排序
+        $array[] = ['id'=>2,'name'=>'张三'];
+        $array[] = ['id'=>1,'name'=>'李四'];
+        $array[] = ['id'=>3,'name'=>'麻子'];
+        $array[] = ['id'=>5,'name'=>'王五'];
+        $array[] = ['id'=>10,'name'=>'实物'];
+        $key = 'id';
+        usort($array, function ($a, $b) use ($key) {
+            return strnatcmp($a[$key], $b[$key]);
+        });
+        print_r($array); // Array ( [0] => Array ( [id] => 1 [name] => 李四 ) [1] => Array ( [id] => 2 [name] => 张三 ) [2] => Array ( [id] => 3 [name] => 麻子 ) [3] => Array ( [id] => 5 [name] => 王五 ) [4] => Array ( [id] => 10 [name] => 实物 ) )
 
         /**
          * uksort — 使用用户自定义的比较函数对数组中的键名进行排序
