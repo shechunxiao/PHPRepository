@@ -27,7 +27,7 @@ class NewArray
         $this->sort_fun(); // 12
 //        $this->column_fun(); // 1
         $this->calculate_fun(); // 6
-//        $this->diff_intersect();
+        $this->diff_intersect();
         $this->pointer_fun(); // 8
         $this->other(); // 8
         // 除了交集和差集 一共60
@@ -1523,6 +1523,11 @@ class NewArray
         /**
          * array_intersect_key
          */
+//        $array1 = ['one'=>'1','two'=>2];
+//        $array2 = ['two'=>2];
+//        $array3 = ['three'=>3,'two'=>2];
+//        $result = array_intersect_key($array1,$array2,$array3);
+//        print_r($result);
 
     }
 
