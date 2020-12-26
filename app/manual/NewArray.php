@@ -1529,6 +1529,56 @@ class NewArray
 //        $result = array_intersect_key($array1,$array2,$array3);
 //        print_r($result);
 
+        /**
+         * array_intersect_assoc
+         */
+//        $array1 = ['one'=>1,'two'=>2];
+//        $array2 = ['one'=>1,'two'=>3];
+//        $array3 = ['one'=>1,'three'=>2];
+//        $result = array_intersect_assoc($array1,$array2,$array3);
+//        print_r($result);
+
+        /**
+         * array_intersect_uassoc
+         */
+//        $array1 = ["a" => "green", "b" => "brown", "c" => "blue", "red"];
+//        $array2 = ["a" => "GREEN", "B" => "brown", "yellow", "red"];
+//        $result = array_intersect_uassoc($array1, $array2, "strcasecmp");
+//        print_r($result);
+
+        /**
+         * array_intersect_ukey
+         */
+//        function key_compare_func($key1, $key2)
+//        {
+//            if ($key1 == $key2){
+//                return 0;
+//            } else if ($key1 > $key2){
+//                return 1;
+//            }else{
+//                return -1;
+//            }
+//        }
+//        $array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+//        $array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+//        $result = array_intersect_ukey($array1, $array2, function($key1, $key2){
+//            if ($key1 == $key2){
+//                return 0;
+//            } else if ($key1 > $key2){
+//                return 1;
+//            }else{
+//                return -1;
+//            }
+//        });
+//        print_r($result);
+
+        /**
+         * array_uintersect_assoc
+         */
+//        $array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+//        $array2 = array("a" => "GREEN", "B" => "brown", "yellow", "red");
+//        print_r(array_uintersect_assoc($array1, $array2, "strcasecmp"));
+
     }
 
     /**
