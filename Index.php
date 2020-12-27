@@ -41,8 +41,8 @@ require 'app/Constant.php'; //定义常量
 //$array->index();
 // 新数组研究
 
-$newArray = new NewArray();
-$newArray->index();
+//$newArray = new NewArray();
+//$newArray->index();
 
 
 
@@ -52,6 +52,9 @@ $newArray->index();
 // */
 //$string = new \app\manual\StringStudy();
 //$string->index();
+
+$newString = new \app\manual\NewString();
+$newString->index();
 
 /**
  * 类和对象
