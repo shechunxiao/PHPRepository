@@ -44,5 +44,31 @@ class NewString
 //        $str = chop('sfds');
 //        echo strip_tags($str).'</br>';
 //        echo str_repeat("-=", 10);
+
+
+        /**
+         * trim
+         */
+//        $str = "\r\tabcdefkklss";
+//        var_dump($str);
+//        $result = rtrim($str);
+//        var_dump($result);
+        /**
+         * 位置
+         */
+//        $str = 'abcdefgabcdefj';
+//        $result = stripos($str,'A');
+//        var_dump($result);
+
+//        $str = 'abcdefgabcdefg';
+//        $result = strrchr($str,'b');
+//        var_dump($result);
+
+        /**
+         * 分割
+         */
+//        $str = chunk_split('abcdefghijklmn',2,'</br>');
+//        var_dump($str);
+
     }
 }
