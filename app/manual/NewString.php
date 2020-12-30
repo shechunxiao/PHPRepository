@@ -11,9 +11,6 @@ class NewString
 {
     public function index()
     {
-        /**
-         * addcslashes
-         */
 //        $str = addcslashes('reset', 'r');
 //        echo $str.'</br>';
 //        $str = stripcslashes($str);
@@ -46,5 +43,6 @@ class NewString
 //        echo strip_tags($str).'</br>';
 //        $str = chop('sfds');
 //        echo strip_tags($str).'</br>';
+//        echo str_repeat("-=", 10);
     }
 }
