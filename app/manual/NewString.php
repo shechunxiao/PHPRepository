@@ -235,5 +235,135 @@ class NewString
 //        $result = similar_text('acdbe','abc',$percent);
 //        echo $result.'</br>';
 //        echo $percent.'</br>';
+//        $result = levenshtein('lisi','lisi');
+//        echo $result.'</br>';
+//        $result = str_word_count('this is',2,'this is');
+//        print_r($result);
+//        echo nl2br("foo isn't\n bar");
+//        echo nl2br("Welcome\r\nThis is my HTML document", true);
+//        echo nl2br("Welcome\r\nThis is my HTML document", false);
+//        $str = addcslashes('foo[ ]', 'A..z');
+//        $result = stripslashes($str);
+//        echo $result;
+//        $str = "Is your name O'reilly?";
+//        echo addslashes($str);
+//        $str = "Is your name O\'reilly?";
+//        echo stripslashes($str);
+//        echo bin2hex('this');
+//        $hex = hex2bin("6578616d706c65206865782064617461");
+//        var_dump($hex);
+//        echo chr(65);
+//        echo convert_uuencode('this is an example');
+//        echo convert_uudecode(convert_uuencode('this is an example'));
+//        $result = count_chars('this');
+//        print_r($result);
+//        $result = crc32("The quick brown fox jumped over the lazy dog.");
+//        echo $result;
+//        $result = hash('md5','this is an example');
+//        echo $result.'</br>';
+//        $result = md5('this is an example');
+//        echo $result.'</br>';
+//        $result = sha1('this is an example');
+//        echo $result.'</br>';
+
+//        echo crypt('this is an example','123');
+//        echo sha1_file('./index.php');
+
+//        echo('张三');
+//        print '张三';
+//        printf("%.02lf\n", 1.035);
+//        printf("%.02lf\n", round(1.035, 2));
+
+//        $num1 = 123456789;
+//        $num2 = -123456789;
+//        $char = 50; // ASCII 字符 50 是 2
+//
+//        // 注释：格式值 "%%" 返回百分号
+//        echo sprintf("%%b = %b",$num1)."<br>"; // 二进制数
+//        echo sprintf("%%c = %c",$char)."<br>"; // ASCII 字符
+//        echo sprintf("%%d = %d",$num1)."<br>"; // 带符号的十进制数
+//        echo sprintf("%%d = %d",$num2)."<br>"; // 带符号的十进制数
+//        echo sprintf("%%e = %e",$num1)."<br>"; // 科学计数法（小写）
+//        echo sprintf("%%E = %E",$num1)."<br>"; // 科学计数法（大写）
+//        echo sprintf("%%u = %u",$num1)."<br>"; // 不带符号的十进制数（正）
+//        echo sprintf("%%u = %u",$num2)."<br>"; // 不带符号的十进制数（负）
+//        echo sprintf("%%f = %f",$num1)."<br>"; // 浮点数（视本地设置）
+//        echo sprintf("%%F = %F",$num1)."<br>"; // 浮点数（不视本地设置）
+//        echo sprintf("%%g = %g",$num1)."<br>"; // 短于 %e 和 %f
+//        echo sprintf("%%G = %G",$num1)."<br>"; // 短于 %E 和 %f
+//        echo sprintf("%%o = %o",$num1)."<br>"; // 八进制数
+//        echo sprintf("%%s = %s",$num1)."<br>"; // 字符串
+//        echo sprintf("%%x = %x",$num1)."<br>"; // 十六进制数（小写）
+//        echo sprintf("%%X = %X",$num1)."<br>"; // 十六进制数（大写）
+//        echo sprintf("%%+d = %+d",$num1)."<br>"; // 符号说明符（正）
+//        echo sprintf("%%+d = %+d",$num2)."<br>"; // 符号说明符（负）
+
+//        $str1 = "Hello";
+//        $str2 = "Hello world!";
+//
+//        echo sprintf("[%s]",$str1)."<br>";
+//        echo sprintf("[%8s]",$str1)."<br>";
+//        echo sprintf("[%-8s]",$str1)."<br>";
+//        echo sprintf("[%08s]",$str1)."<br>";
+//        echo sprintf("[%'*8s]",$str1)."<br>";
+//        echo sprintf("[%8.8s]",$str2)."<br>";
+
+//        $num1 = 123456789;
+//        $num2 = -123456789;
+//        $char = 50; // ASCII 字符 50 是 2
+//
+//// 注释：格式值 "%%" 返回百分号
+//        printf("%%b = %b <br>",$num1); // 二进制数
+//        printf("%%c = %c <br>",$char); // ASCII 字符
+//        printf("%%d = %d <br>",$num1); // 带符号的十进制数
+//        printf("%%d = %d <br>",$num2); // 带符号的十进制数
+//        printf("%%e = %e <br>",$num1); // 科学计数法（小写）
+//        printf("%%E = %E <br>",$num1); // 科学计数法（大写）
+//        printf("%%u = %u <br>",$num1); // 不带符号的十进制数（正）
+//        printf("%%u = %u <br>",$num2); // 不带符号的十进制数（负）
+//        printf("%%f = %f <br>",$num1); // 浮点数（视本地设置）
+//        printf("%%F = %F <br>",$num1); // 浮点数（不视本地设置）
+//        printf("%%g = %g <br>",$num1); // 短于 %e 和 %f
+//        printf("%%G = %G <br>",$num1); // 短于 %E 和 %f
+//        printf("%%o = %o <br>",$num1); // 八进制数
+//        printf("%%s = %s-%+d <br>",$num1,$num2); // 字符串
+//        printf("%%x = %x <br>",$num1); // 十六进制数（小写）
+//        printf("%%X = %X <br>",$num1); // 十六进制数（大写）
+//        printf("%%+d = %+d <br>",$num1); // 符号说明符（正）
+//        printf("%%+d = %+d <br>",$num2); // 符号说明符（负）
+
+//        $num1 = 123;
+//        $num2 = 456;
+//        vprintf("%f%f",array($num1,$num2));
+
+//        $str1 = "Hello";
+//        $str2 = "Hello world!";
+//
+//        vprintf("[%s]<br>",array($str1));
+//        vprintf("[%8s]<br>",array($str1));
+//        vprintf("[%-8s]<br>",array($str1));
+//        vprintf("[%08s]<br>",array($str1));
+//        vprintf("[%'*8s]<br>",array($str1));
+//        vprintf("[%8.8s]<br>",array($str2));
+
+//        $number = 9;
+//        $str = "Beijing";
+//        $txt = vsprintf("There are %u million bicycles in %s.",array($number,$str));
+//        echo $txt;
+//        $row = 1;
+//        if (($handle = fopen("test.csv", "r")) !== FALSE) {
+//            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+//                $num = count($data);
+//                echo "<p> $num fields in line $row: <br /></p>\n";
+//                $row++;
+//                for ($c=0; $c < $num; $c++) {
+//                    echo $data[$c] . "<br />\n";
+//                }
+//            }
+//            fclose($handle);
+//        }
+//        $result = str_getcsv('sj_mino1001.jpg,715282,4FB55FE8，',',');
+//        print_r($result);
+
     }
 }
