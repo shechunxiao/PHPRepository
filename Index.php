@@ -5,6 +5,7 @@ use app\manual\DataType;
 use app\manual\Magic;
 use app\manual\MagicConstant;
 use app\manual\NewArray;
+use app\manual\NewDate;
 
 require 'bootstrap/app.php'; //composer自动加载
 require 'app/Constant.php'; //定义常量
@@ -53,8 +54,12 @@ require 'app/Constant.php'; //定义常量
 //$string = new \app\manual\StringStudy();
 //$string->index();
 
-$newString = new \app\manual\NewString();
-$newString->index();
+//$newString = new \app\manual\NewString();
+//$newString->index();
+
+// 时间函数
+$date = new NewDate();
+$date->index();
 
 /**
  * 类和对象
