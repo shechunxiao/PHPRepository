@@ -33,6 +33,10 @@ class NewDate
 //        echo date('U').'</br>';
 //        echo microtime().'</br>';
 //        echo microtime(true).'</br>';
+//        var_dump(is_link( './index.html'));
+//        echo realpath( './index.html');
+//        echo mime_content_type('./mypic.png');
+
     }
 
 
