@@ -42,9 +42,53 @@ class NewDate
 //        $result = checkdate('12','32','2020'); // 错误值
 //        var_dump($result);
 
-        $result = date('@321321');
-        var_dump($result);
+        $time = strtotime('2021-01-09 17:44:56'); // 时间戳 1610185496
 
+        echo '***************日***************'.'</br>';
+        echo date('d',$time).'</br>';
+        echo date('D',$time).'</br>';
+        echo date('j',$time).'</br>';
+        echo date('l',$time).'</br>';
+        echo date('N',$time).'</br>';
+        echo date('S',$time).'</br>';
+        echo date('w',$time).'</br>';
+        echo date('z',$time).'</br>';
+        echo '***************星期***************'.'</br>';
+        echo date('W',$time).'</br>';
+        echo '***************月***************'.'</br>';
+        echo date('F',$time).'</br>';
+        echo date('m',$time).'</br>';
+        echo date('M',$time).'</br>';
+        echo date('n',$time).'</br>';
+        echo date('t',$time).'</br>';
+        echo '***************年***************'.'</br>';
+        echo date('L',$time).'</br>';
+        echo date('o',$time).'</br>';
+        echo date('Y',$time).'</br>';
+        echo date('y',$time).'</br>';
+        echo '***************时间***************'.'</br>';
+        echo date('a',$time).'</br>';
+        echo date('A',$time).'</br>';
+        echo date('g',$time).'</br>';
+        echo date('G',$time).'</br>';
+        echo date('h',$time).'</br>';
+        echo date('H',$time).'</br>';
+        echo date('i',$time).'</br>';
+        echo date('s',$time).'</br>';
+        echo date('u',$time).'</br>';
+        echo '***************时区***************'.'</br>';
+        echo date('e',$time).'</br>';
+        echo date('I',$time).'</br>';
+        echo date('O',$time).'</br>';
+        echo date('P',$time).'</br>';
+        echo date('T',$time).'</br>';
+        echo date('Z',$time).'</br>';
+        echo date('c',$time).'</br>';
+        echo date('r',$time).'</br>';
+        echo date('U',$time).'</br>';
+        echo '***************其他***************'.'</br>';
+        echo date(DATE_RFC3339).'</br>';
+        echo date(DATE_ISO8601).'</br>';
     }
 
 
