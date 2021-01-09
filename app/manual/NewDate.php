@@ -37,6 +37,14 @@ class NewDate
 //        echo realpath( './index.html');
 //        echo mime_content_type('./mypic.png');
 
+//        $result = checkdate('12','09','2020'); // 正确值
+//        var_dump($result);
+//        $result = checkdate('12','32','2020'); // 错误值
+//        var_dump($result);
+
+        $result = date('@321321');
+        var_dump($result);
+
     }
 
 
