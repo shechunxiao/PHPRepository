@@ -58,8 +58,8 @@ require 'app/Constant.php'; //定义常量
 //$newString->index();
 
 // 时间函数
-$date = new NewDate();
-$date->index();
+//$date = new NewDate();
+//$date->index();
 
 /**
  * 类和对象
@@ -76,8 +76,8 @@ $date->index();
 /**
  * BC高精度数字函数
  */
-//$bc = new \app\manual\Bc();
-//$bc->index();
+$bc = new \app\manual\Bc();
+$bc->index();
 
 /**
  * GD库

@@ -16,11 +16,12 @@ class Bc implements Base{
          *      left_operand
                     左操作数，字符串类型
                 right_operand
-                    右操作数，字符串类型
+                    右操作数，字符串类型、
+         *
                 scale
                     此可选参数用于设置结果中小数点后的小数位数。也可通过使用 bcscale() 来设置全局默认的小数位数，用于所有函数。
          */
-//        $result = bcadd(12.344343,15.999,3);
+//        $result = bcadd(12.3344,15.2255,3);
 //        var_dump($result);
         /**
          *  减法
@@ -40,17 +41,21 @@ class Bc implements Base{
          */
 //        $result = bcdiv(12.33,10.25,2);
 //        var_dump($result);
+//        $result = bcdiv(12.33,0,2);
+//        var_dump($result);
         /**
          *  取模
          *  string bcmod( string $left_operand, string $modulus)
          */
-//        $result = bcmod(16.01,8);
+//        $result = bcmod(16.01,7);
 //        var_dump($result);
         /**
          *  二次方根
          *  string bcsqrt( string $operand[, int $scale] )
          */
 //        $result = bcsqrt(12.13,2);
+//        var_dump($result);
+//        $result = bcsqrt(2,2);
 //        var_dump($result);
         /**
          *  任意精度数字的成方  a的n次方
@@ -62,8 +67,10 @@ class Bc implements Base{
          *  比较
          *  int bccomp( string $left_operand, string $right_operand[, int $scale = int] )
          */
-//        $result = bccomp(8.131,8.130,2);
-//        var_dump($result);
+        $result = bccomp(8.924,3.2,2);
+        var_dump($result);
+        $result = bccomp(8.131,8.130,2);
+        var_dump($result);
 
 
 
